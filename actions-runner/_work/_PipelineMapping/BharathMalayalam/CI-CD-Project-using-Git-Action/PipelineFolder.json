@@ -1,0 +1,12 @@
+﻿{
+  "repositoryName": "BharathMalayalam/CI-CD-Project-using-Git-Action",
+  "pipelineDirectory": "CI-CD-Project-using-Git-Action",
+  "workspaceDirectory": "CI-CD-Project-using-Git-Action\\CI-CD-Project-using-Git-Action",
+  "repositories": {
+    "BharathMalayalam/CI-CD-Project-using-Git-Action": {
+      "repositoryPath": "CI-CD-Project-using-Git-Action\\CI-CD-Project-using-Git-Action",
+      "lastRunOn": "06/13/2026 13:02:14 +05:30"
+    }
+  },
+  "lastRunOn": "06/13/2026 13:02:14 +05:30"
+}

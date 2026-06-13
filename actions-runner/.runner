@@ -1,0 +1,11 @@
+﻿{
+  "agentId": 2,
+  "agentName": "BHARATH",
+  "poolId": 1,
+  "poolName": "Default",
+  "serverUrl": "https://pipelinesghubeus9.actions.githubusercontent.com/pO2Kfuaw990lFFKM1HLGu2nECRmOXlR6O4HndQ3ElYcmiGSwrP/",
+  "gitHubUrl": "https://github.com/BharathMalayalam/CI-CD-Project-using-Git-Action",
+  "workFolder": "_work",
+  "useV2Flow": true,
+  "serverUrlV2": "https://broker.actions.githubusercontent.com/"
+}
