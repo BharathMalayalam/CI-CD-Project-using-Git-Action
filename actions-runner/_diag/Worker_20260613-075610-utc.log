@@ -1,0 +1,3562 @@
+[2026-06-13 07:56:10Z INFO HostContext] No proxy settings were found based on environmental variables (http_proxy/https_proxy/HTTP_PROXY/HTTPS_PROXY)
+[2026-06-13 07:56:10Z INFO HostContext] Well known directory 'Bin': 'D:\Docker\actions-runner\bin'
+[2026-06-13 07:56:10Z INFO HostContext] Well known directory 'Root': 'D:\Docker\actions-runner'
+[2026-06-13 07:56:10Z INFO HostContext] Well known config file 'Credentials': 'D:\Docker\actions-runner\.credentials'
+[2026-06-13 07:56:11Z INFO HostContext] Well known directory 'Bin': 'D:\Docker\actions-runner\bin'
+[2026-06-13 07:56:11Z INFO HostContext] Well known directory 'Root': 'D:\Docker\actions-runner'
+[2026-06-13 07:56:11Z INFO HostContext] Well known config file 'Runner': 'D:\Docker\actions-runner\.runner'
+[2026-06-13 07:56:11Z INFO Worker] Version: 2.335.1
+[2026-06-13 07:56:11Z INFO Worker] Commit: 7d737449ef346f6524f75688d0c9c95fa10ba10a
+[2026-06-13 07:56:11Z INFO Worker] Culture: en-US
+[2026-06-13 07:56:11Z INFO Worker] UI Culture: en-US
+[2026-06-13 07:56:11Z INFO Worker] Waiting to receive the job message from the channel.
+[2026-06-13 07:56:11Z INFO ProcessChannel] Receiving message of length 24117, with hash '845c52e3e906ef58a3255512c33fac987cd5c0b8e07c3ed3c99662ba1885c7c2'
+[2026-06-13 07:56:11Z INFO Worker] Message received.
+[2026-06-13 07:56:11Z INFO Worker] Job message:
+ {
+  "fileTable": [
+    ".github/workflows/deploy.yml"
+  ],
+  "mask": [
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    }
+  ],
+  "steps": [
+    {
+      "type": "action",
+      "reference": {
+        "type": "repository",
+        "name": "actions/checkout",
+        "ref": "v3",
+        "repositoryType": "GitHub"
+      },
+      "displayNameToken": {
+        "type": 0,
+        "file": 1,
+        "line": 13,
+        "col": 15,
+        "lit": "Checkout code"
+      },
+      "contextName": "__actions_checkout",
+      "condition": "success()",
+      "id": "b0a95b4f-58ba-4426-8405-66f5affae6e0",
+      "name": "__actions_checkout"
+    },
+    {
+      "type": "action",
+      "reference": {
+        "type": "script"
+      },
+      "displayNameToken": {
+        "type": 0,
+        "file": 1,
+        "line": 16,
+        "col": 15,
+        "lit": "Build Docker Image"
+      },
+      "contextName": "__run",
+      "inputs": {
+        "type": 2,
+        "map": [
+          {
+            "key": "script",
+            "value": {
+              "type": 0,
+              "file": 1,
+              "line": 17,
+              "col": 14,
+              "lit": "docker build -t devops-app ."
+            }
+          }
+        ]
+      },
+      "condition": "success()",
+      "id": "a3777147-746c-42d7-9a08-2339808a9f9a",
+      "name": "__run"
+    },
+    {
+      "type": "action",
+      "reference": {
+        "type": "script"
+      },
+      "displayNameToken": {
+        "type": 0,
+        "file": 1,
+        "line": 19,
+        "col": 15,
+        "lit": "Stop old container"
+      },
+      "contextName": "__run_2",
+      "inputs": {
+        "type": 2,
+        "map": [
+          {
+            "key": "script",
+            "value": {
+              "type": 0,
+              "file": 1,
+              "line": 20,
+              "col": 14,
+              "lit": "docker stop devops-app || true"
+            }
+          }
+        ]
+      },
+      "condition": "success()",
+      "id": "16e55059-a100-44b6-8146-22ac49740f87",
+      "name": "__run_2"
+    },
+    {
+      "type": "action",
+      "reference": {
+        "type": "script"
+      },
+      "displayNameToken": {
+        "type": 0,
+        "file": 1,
+        "line": 22,
+        "col": 15,
+        "lit": "Remove old container"
+      },
+      "contextName": "__run_3",
+      "inputs": {
+        "type": 2,
+        "map": [
+          {
+            "key": "script",
+            "value": {
+              "type": 0,
+              "file": 1,
+              "line": 23,
+              "col": 14,
+              "lit": "docker rm devops-app || true"
+            }
+          }
+        ]
+      },
+      "condition": "success()",
+      "id": "64eacdb6-e54d-4c47-a32d-a2158e8206a8",
+      "name": "__run_3"
+    },
+    {
+      "type": "action",
+      "reference": {
+        "type": "script"
+      },
+      "displayNameToken": {
+        "type": 0,
+        "file": 1,
+        "line": 25,
+        "col": 15,
+        "lit": "Run container"
+      },
+      "contextName": "__run_4",
+      "inputs": {
+        "type": 2,
+        "map": [
+          {
+            "key": "script",
+            "value": {
+              "type": 0,
+              "file": 1,
+              "line": 26,
+              "col": 14,
+              "lit": "docker run -d -p 3000:3000 --name devops-app devops-app"
+            }
+          }
+        ]
+      },
+      "condition": "success()",
+      "id": "a24634e3-9564-4429-8b79-d59ec9644927",
+      "name": "__run_4"
+    }
+  ],
+  "variables": {
+    "Actions.EnableHttpRedirects": {
+      "value": "true"
+    },
+    "DistributedTask.AddWarningToNode12Action": {
+      "value": "true"
+    },
+    "DistributedTask.AddWarningToNode16Action": {
+      "value": "true"
+    },
+    "DistributedTask.AllowRunnerContainerHooks": {
+      "value": "true"
+    },
+    "DistributedTask.DeprecateStepOutputCommands": {
+      "value": "true"
+    },
+    "DistributedTask.DetailUntarFailure": {
+      "value": "true"
+    },
+    "DistributedTask.EnableCompositeActions": {
+      "value": "true"
+    },
+    "DistributedTask.EnableJobServerQueueTelemetry": {
+      "value": "true"
+    },
+    "DistributedTask.EnhancedAnnotations": {
+      "value": "true"
+    },
+    "DistributedTask.ForceGithubJavascriptActionsToNode16": {
+      "value": "true"
+    },
+    "DistributedTask.ForceGithubJavascriptActionsToNode20": {
+      "value": "true"
+    },
+    "DistributedTask.LogTemplateErrorsAsDebugMessages": {
+      "value": "true"
+    },
+    "DistributedTask.MarkJobAsFailedOnWorkerCrash": {
+      "value": "true"
+    },
+    "DistributedTask.NewActionMetadata": {
+      "value": "true"
+    },
+    "DistributedTask.UploadStepSummary": {
+      "value": "true"
+    },
+    "DistributedTask.UseActionArchiveCache": {
+      "value": "true"
+    },
+    "DistributedTask.UseWhich2": {
+      "value": "true"
+    },
+    "RunService.FixEmbeddedIssues": {
+      "value": "true"
+    },
+    "actions.runner.requirenode24": {
+      "value": "false"
+    },
+    "actions.runner.usenode24bydefault": {
+      "value": "false"
+    },
+    "actions.runner.warnonnode20": {
+      "value": "true"
+    },
+    "actions_add_check_run_id_to_job_context": {
+      "value": "true"
+    },
+    "actions_batch_action_resolution": {
+      "value": "false"
+    },
+    "actions_container_action_runner_temp": {
+      "value": "true"
+    },
+    "actions_display_helpful_actions_download_errors": {
+      "value": "true"
+    },
+    "actions_runner_compare_workflow_parser": {
+      "value": "false"
+    },
+    "actions_runner_deprecate_linux_arm32": {
+      "value": "false"
+    },
+    "actions_runner_emit_composite_markers": {
+      "value": "false"
+    },
+    "actions_runner_kill_linux_arm32": {
+      "value": "false"
+    },
+    "actions_runner_node20_removal_date": {
+      "value": ""
+    },
+    "actions_runner_node24_default_date": {
+      "value": "June 16th, 2026"
+    },
+    "actions_service_container_command": {
+      "value": "true"
+    },
+    "actions_set_orchestration_id_env_for_actions": {
+      "value": "true"
+    },
+    "actions_skip_retry_complete_job_upon_known_errors": {
+      "value": "true"
+    },
+    "actions_snapshot_preflight_hosted_runner_check": {
+      "value": "false"
+    },
+    "actions_snapshot_preflight_image_gen_pool_check": {
+      "value": "false"
+    },
+    "actions_use_bearer_token_for_codeload": {
+      "value": "false"
+    },
+    "actions_uses_cache_service_v2": {
+      "value": "true"
+    },
+    "github_token": {
+      "value": "***",
+      "isSecret": true
+    },
+    "system.from_run_service": {
+      "value": "true"
+    },
+    "system.github.job": {
+      "value": "deploy"
+    },
+    "system.github.launch_endpoint": {
+      "value": "https://launch.actions.githubusercontent.com"
+    },
+    "system.github.results_endpoint": {
+      "value": "https://results-receiver.actions.githubusercontent.com/"
+    },
+    "system.github.results_upload_with_sdk": {
+      "value": "true"
+    },
+    "system.github.token": {
+      "value": "***",
+      "isSecret": true
+    },
+    "system.github.token.permissions": {
+      "value": "{\"Contents\":\"read\",\"Metadata\":\"read\",\"Packages\":\"read\"}"
+    },
+    "system.orchestrationId": {
+      "value": "a5fd09c1-9c5e-4f0d-b255-cfd8732d5a5b.deploy.__default"
+    },
+    "system.phaseDisplayName": {
+      "value": "deploy"
+    },
+    "system.runner.lowdiskspacethreshold": {
+      "value": "100"
+    },
+    "system.runnerEnvironment": {
+      "value": "self-hosted"
+    },
+    "system.runnerGroupName": {
+      "value": "Default"
+    }
+  },
+  "messageType": "RunnerJobRequest",
+  "plan": {
+    "scopeIdentifier": "00000000-0000-0000-0000-000000000000",
+    "planType": "actions",
+    "version": 0,
+    "planId": "a5fd09c1-9c5e-4f0d-b255-cfd8732d5a5b",
+    "planGroup": null,
+    "artifactUri": null,
+    "artifactLocation": null,
+    "definition": null,
+    "owner": null
+  },
+  "timeline": {
+    "id": "a5fd09c1-9c5e-4f0d-b255-cfd8732d5a5b",
+    "changeId": 0,
+    "location": null
+  },
+  "jobId": "860944d9-723b-5a38-a79e-5f37b99ae5cb",
+  "jobDisplayName": "deploy",
+  "jobName": "__default",
+  "requestId": 0,
+  "lockedUntil": "0001-01-01T00:00:00",
+  "resources": {
+    "endpoints": [
+      {
+        "data": {
+          "ServerId": "",
+          "ServerName": "",
+          "CacheServerUrl": "https://artifactcache.actions.githubusercontent.com/pO2Kfuaw990lFFKM1HLGu2nECRmOXlR6O4HndQ3ElYcmiGSwrP/",
+          "FeedStreamUrl": "wss://results-receiver.actions.githubusercontent.com/_ws/ingest.sock",
+          "ResultsServiceUrl": "https://results-receiver.actions.githubusercontent.com/",
+          "PipelinesServiceUrl": "https://pipelinesghubeus9.actions.githubusercontent.com/pO2Kfuaw990lFFKM1HLGu2nECRmOXlR6O4HndQ3ElYcmiGSwrP/",
+          "GenerateIdTokenUrl": "",
+          "ConnectivityChecks": "[\"https://broker.actions.githubusercontent.com/health\",\"https://token.actions.githubusercontent.com/ready\",\"https://run.actions.githubusercontent.com/health\"]"
+        },
+        "name": "SystemVssConnection",
+        "url": "https://run-actions-1-azure-eastus.actions.githubusercontent.com/18/",
+        "authorization": {
+          "parameters": {
+            "AccessToken": "***"
+          },
+          "scheme": "OAuth"
+        },
+        "isShared": false,
+        "isReady": true
+      }
+    ]
+  },
+  "contextData": {
+    "github": {
+      "t": 2,
+      "d": [
+        {
+          "k": "ref",
+          "v": "refs/heads/main"
+        },
+        {
+          "k": "sha",
+          "v": "f85fe5636360e8e3bb753a1b6ac02d2d2ed50663"
+        },
+        {
+          "k": "repository",
+          "v": "BharathMalayalam/CI-CD-Project-using-Git-Action"
+        },
+        {
+          "k": "repository_owner",
+          "v": "BharathMalayalam"
+        },
+        {
+          "k": "repository_owner_id",
+          "v": "208696626"
+        },
+        {
+          "k": "repositoryUrl",
+          "v": "git://github.com/BharathMalayalam/CI-CD-Project-using-Git-Action.git"
+        },
+        {
+          "k": "run_id",
+          "v": "27460960176"
+        },
+        {
+          "k": "run_number",
+          "v": "5"
+        },
+        {
+          "k": "retention_days",
+          "v": "90"
+        },
+        {
+          "k": "run_attempt",
+          "v": "1"
+        },
+        {
+          "k": "artifact_cache_size_limit",
+          "v": "10"
+        },
+        {
+          "k": "repository_visibility",
+          "v": "public"
+        },
+        {
+          "k": "actor_id",
+          "v": "208696626"
+        },
+        {
+          "k": "actor",
+          "v": "BharathMalayalam"
+        },
+        {
+          "k": "workflow",
+          "v": "Docker CI/CD"
+        },
+        {
+          "k": "head_ref",
+          "v": ""
+        },
+        {
+          "k": "base_ref",
+          "v": ""
+        },
+        {
+          "k": "event_name",
+          "v": "push"
+        },
+        {
+          "k": "server_url",
+          "v": "https://github.com"
+        },
+        {
+          "k": "api_url",
+          "v": "https://api.github.com"
+        },
+        {
+          "k": "graphql_url",
+          "v": "https://api.github.com/graphql"
+        },
+        {
+          "k": "ref_name",
+          "v": "main"
+        },
+        {
+          "k": "ref_protected",
+          "v": false
+        },
+        {
+          "k": "ref_type",
+          "v": "branch"
+        },
+        {
+          "k": "secret_source",
+          "v": "Actions"
+        },
+        {
+          "k": "event",
+          "v": {
+            "t": 2,
+            "d": [
+              {
+                "k": "after",
+                "v": "f85fe5636360e8e3bb753a1b6ac02d2d2ed50663"
+              },
+              {
+                "k": "base_ref",
+                "v": null
+              },
+              {
+                "k": "before",
+                "v": "fc9a9955bdc04dc3ba10b264bfadbcb561e803db"
+              },
+              {
+                "k": "commits",
+                "v": {
+                  "t": 1,
+                  "a": [
+                    {
+                      "t": 2,
+                      "d": [
+                        {
+                          "k": "author",
+                          "v": {
+                            "t": 2,
+                            "d": [
+                              {
+                                "k": "email",
+                                "v": "bharathmalaylam25@gmail.com"
+                              },
+                              {
+                                "k": "name",
+                                "v": "Bharath Malayalam"
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "k": "committer",
+                          "v": {
+                            "t": 2,
+                            "d": [
+                              {
+                                "k": "email",
+                                "v": "bharathmalaylam25@gmail.com"
+                              },
+                              {
+                                "k": "name",
+                                "v": "Bharath Malayalam"
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "k": "distinct",
+                          "v": true
+                        },
+                        {
+                          "k": "id",
+                          "v": "f85fe5636360e8e3bb753a1b6ac02d2d2ed50663"
+                        },
+                        {
+                          "k": "message",
+                          "v": "Version 2.0"
+                        },
+                        {
+                          "k": "timestamp",
+                          "v": "2026-06-13T13:25:10+05:30"
+                        },
+                        {
+                          "k": "tree_id",
+                          "v": "b2bc9c3a27509423aea6aac37c180e2216844830"
+                        },
+                        {
+                          "k": "url",
+                          "v": "https://github.com/BharathMalayalam/CI-CD-Project-using-Git-Action/commit/f85fe5636360e8e3bb753a1b6ac02d2d2ed50663"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              },
+              {
+                "k": "compare",
+                "v": "https://github.com/BharathMalayalam/CI-CD-Project-using-Git-Action/compare/fc9a9955bdc0...f85fe5636360"
+              },
+              {
+                "k": "created",
+                "v": false
+              },
+              {
+                "k": "deleted",
+                "v": false
+              },
+              {
+                "k": "forced",
+                "v": false
+              },
+              {
+                "k": "head_commit",
+                "v": {
+                  "t": 2,
+                  "d": [
+                    {
+                      "k": "author",
+                      "v": {
+                        "t": 2,
+                        "d": [
+                          {
+                            "k": "email",
+                            "v": "bharathmalaylam25@gmail.com"
+                          },
+                          {
+                            "k": "name",
+                            "v": "Bharath Malayalam"
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "k": "committer",
+                      "v": {
+                        "t": 2,
+                        "d": [
+                          {
+                            "k": "email",
+                            "v": "bharathmalaylam25@gmail.com"
+                          },
+                          {
+                            "k": "name",
+                            "v": "Bharath Malayalam"
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "k": "distinct",
+                      "v": true
+                    },
+                    {
+                      "k": "id",
+                      "v": "f85fe5636360e8e3bb753a1b6ac02d2d2ed50663"
+                    },
+                    {
+                      "k": "message",
+                      "v": "Version 2.0"
+                    },
+                    {
+                      "k": "timestamp",
+                      "v": "2026-06-13T13:25:10+05:30"
+                    },
+                    {
+                      "k": "tree_id",
+                      "v": "b2bc9c3a27509423aea6aac37c180e2216844830"
+                    },
+                    {
+                      "k": "url",
+                      "v": "https://github.com/BharathMalayalam/CI-CD-Project-using-Git-Action/commit/f85fe5636360e8e3bb753a1b6ac02d2d2ed50663"
+                    }
+                  ]
+                }
+              },
+              {
+                "k": "pusher",
+                "v": {
+                  "t": 2,
+                  "d": [
+                    {
+                      "k": "email",
+                      "v": "bharathmalayalam25@gmail.com"
+                    },
+                    {
+                      "k": "name",
+                      "v": "BharathMalayalam"
+                    }
+                  ]
+                }
+              },
+              {
+                "k": "ref",
+                "v": "refs/heads/main"
+              },
+              {
+                "k": "repository",
+                "v": {
+                  "t": 2,
+                  "d": [
+                    {
+                      "k": "allow_forking",
+                      "v": true
+                    },
+                    {
+                      "k": "archive_url",
+                      "v": "https://api.github.com/repos/BharathMalayalam/CI-CD-Project-using-Git-Action/{archive_format}{/ref}"
+                    },
+                    {
+                      "k": "archived",
+                      "v": false
+                    },
+                    {
+                      "k": "assignees_url",
+                      "v": "https://api.github.com/repos/BharathMalayalam/CI-CD-Project-using-Git-Action/assignees{/user}"
+                    },
+                    {
+                      "k": "blobs_url",
+                      "v": "https://api.github.com/repos/BharathMalayalam/CI-CD-Project-using-Git-Action/git/blobs{/sha}"
+                    },
+                    {
+                      "k": "branches_url",
+                      "v": "https://api.github.com/repos/BharathMalayalam/CI-CD-Project-using-Git-Action/branches{/branch}"
+                    },
+                    {
+                      "k": "clone_url",
+                      "v": "https://github.com/BharathMalayalam/CI-CD-Project-using-Git-Action.git"
+                    },
+                    {
+                      "k": "collaborators_url",
+                      "v": "https://api.github.com/repos/BharathMalayalam/CI-CD-Project-using-Git-Action/collaborators{/collaborator}"
+                    },
+                    {
+                      "k": "comments_url",
+                      "v": "https://api.github.com/repos/BharathMalayalam/CI-CD-Project-using-Git-Action/comments{/number}"
+                    },
+                    {
+                      "k": "commits_url",
+                      "v": "https://api.github.com/repos/BharathMalayalam/CI-CD-Project-using-Git-Action/commits{/sha}"
+                    },
+                    {
+                      "k": "compare_url",
+                      "v": "https://api.github.com/repos/BharathMalayalam/CI-CD-Project-using-Git-Action/compare/{base}...{head}"
+                    },
+                    {
+                      "k": "contents_url",
+                      "v": "https://api.github.com/repos/BharathMalayalam/CI-CD-Project-using-Git-Action/contents/{+path}"
+                    },
+                    {
+                      "k": "contributors_url",
+                      "v": "https://api.github.com/repos/BharathMalayalam/CI-CD-Project-using-Git-Action/contributors"
+                    },
+                    {
+                      "k": "created_at",
+                      "v": 1781334855.0
+                    },
+                    {
+                      "k": "default_branch",
+                      "v": "main"
+                    },
+                    {
+                      "k": "deployments_url",
+                      "v": "https://api.github.com/repos/BharathMalayalam/CI-CD-Project-using-Git-Action/deployments"
+                    },
+                    {
+                      "k": "description",
+                      "v": null
+                    },
+                    {
+                      "k": "disabled",
+                      "v": false
+                    },
+                    {
+                      "k": "downloads_url",
+                      "v": "https://api.github.com/repos/BharathMalayalam/CI-CD-Project-using-Git-Action/downloads"
+                    },
+                    {
+                      "k": "events_url",
+                      "v": "https://api.github.com/repos/BharathMalayalam/CI-CD-Project-using-Git-Action/events"
+                    },
+                    {
+                      "k": "fork",
+                      "v": false
+                    },
+                    {
+                      "k": "forks",
+                      "v": 0.0
+                    },
+                    {
+                      "k": "forks_count",
+                      "v": 0.0
+                    },
+                    {
+                      "k": "forks_url",
+                      "v": "https://api.github.com/repos/BharathMalayalam/CI-CD-Project-using-Git-Action/forks"
+                    },
+                    {
+                      "k": "full_name",
+                      "v": "BharathMalayalam/CI-CD-Project-using-Git-Action"
+                    },
+                    {
+                      "k": "git_commits_url",
+                      "v": "https://api.github.com/repos/BharathMalayalam/CI-CD-Project-using-Git-Action/git/commits{/sha}"
+                    },
+                    {
+                      "k": "git_refs_url",
+                      "v": "https://api.github.com/repos/BharathMalayalam/CI-CD-Project-using-Git-Action/git/refs{/sha}"
+                    },
+                    {
+                      "k": "git_tags_url",
+                      "v": "https://api.github.com/repos/BharathMalayalam/CI-CD-Project-using-Git-Action/git/tags{/sha}"
+                    },
+                    {
+                      "k": "git_url",
+                      "v": "git://github.com/BharathMalayalam/CI-CD-Project-using-Git-Action.git"
+                    },
+                    {
+                      "k": "has_discussions",
+                      "v": false
+                    },
+                    {
+                      "k": "has_downloads",
+                      "v": true
+                    },
+                    {
+                      "k": "has_issues",
+                      "v": true
+                    },
+                    {
+                      "k": "has_pages",
+                      "v": false
+                    },
+                    {
+                      "k": "has_projects",
+                      "v": true
+                    },
+                    {
+                      "k": "has_pull_requests",
+                      "v": true
+                    },
+                    {
+                      "k": "has_wiki",
+                      "v": true
+                    },
+                    {
+                      "k": "homepage",
+                      "v": null
+                    },
+                    {
+                      "k": "hooks_url",
+                      "v": "https://api.github.com/repos/BharathMalayalam/CI-CD-Project-using-Git-Action/hooks"
+                    },
+                    {
+                      "k": "html_url",
+                      "v": "https://github.com/BharathMalayalam/CI-CD-Project-using-Git-Action"
+                    },
+                    {
+                      "k": "id",
+                      "v": 1268132211.0
+                    },
+                    {
+                      "k": "is_template",
+                      "v": false
+                    },
+                    {
+                      "k": "issue_comment_url",
+                      "v": "https://api.github.com/repos/BharathMalayalam/CI-CD-Project-using-Git-Action/issues/comments{/number}"
+                    },
+                    {
+                      "k": "issue_events_url",
+                      "v": "https://api.github.com/repos/BharathMalayalam/CI-CD-Project-using-Git-Action/issues/events{/number}"
+                    },
+                    {
+                      "k": "issues_url",
+                      "v": "https://api.github.com/repos/BharathMalayalam/CI-CD-Project-using-Git-Action/issues{/number}"
+                    },
+                    {
+                      "k": "keys_url",
+                      "v": "https://api.github.com/repos/BharathMalayalam/CI-CD-Project-using-Git-Action/keys{/key_id}"
+                    },
+                    {
+                      "k": "labels_url",
+                      "v": "https://api.github.com/repos/BharathMalayalam/CI-CD-Project-using-Git-Action/labels{/name}"
+                    },
+                    {
+                      "k": "language",
+                      "v": "JavaScript"
+                    },
+                    {
+                      "k": "languages_url",
+                      "v": "https://api.github.com/repos/BharathMalayalam/CI-CD-Project-using-Git-Action/languages"
+                    },
+                    {
+                      "k": "license",
+                      "v": null
+                    },
+                    {
+                      "k": "master_branch",
+                      "v": "main"
+                    },
+                    {
+                      "k": "merges_url",
+                      "v": "https://api.github.com/repos/BharathMalayalam/CI-CD-Project-using-Git-Action/merges"
+                    },
+                    {
+                      "k": "milestones_url",
+                      "v": "https://api.github.com/repos/BharathMalayalam/CI-CD-Project-using-Git-Action/milestones{/number}"
+                    },
+                    {
+                      "k": "mirror_url",
+                      "v": null
+                    },
+                    {
+                      "k": "name",
+                      "v": "CI-CD-Project-using-Git-Action"
+                    },
+                    {
+                      "k": "node_id",
+                      "v": "R_kgDOS5Ypcw"
+                    },
+                    {
+                      "k": "notifications_url",
+                      "v": "https://api.github.com/repos/BharathMalayalam/CI-CD-Project-using-Git-Action/notifications{?since,all,participating}"
+                    },
+                    {
+                      "k": "open_issues",
+                      "v": 0.0
+                    },
+                    {
+                      "k": "open_issues_count",
+                      "v": 0.0
+                    },
+                    {
+                      "k": "owner",
+                      "v": {
+                        "t": 2,
+                        "d": [
+                          {
+                            "k": "avatar_url",
+                            "v": "https://avatars.githubusercontent.com/u/208696626?v=4"
+                          },
+                          {
+                            "k": "email",
+                            "v": "bharathmalayalam25@gmail.com"
+                          },
+                          {
+                            "k": "events_url",
+                            "v": "https://api.github.com/users/BharathMalayalam/events{/privacy}"
+                          },
+                          {
+                            "k": "followers_url",
+                            "v": "https://api.github.com/users/BharathMalayalam/followers"
+                          },
+                          {
+                            "k": "following_url",
+                            "v": "https://api.github.com/users/BharathMalayalam/following{/other_user}"
+                          },
+                          {
+                            "k": "gists_url",
+                            "v": "https://api.github.com/users/BharathMalayalam/gists{/gist_id}"
+                          },
+                          {
+                            "k": "gravatar_id",
+                            "v": ""
+                          },
+                          {
+                            "k": "html_url",
+                            "v": "https://github.com/BharathMalayalam"
+                          },
+                          {
+                            "k": "id",
+                            "v": 208696626.0
+                          },
+                          {
+                            "k": "login",
+                            "v": "BharathMalayalam"
+                          },
+                          {
+                            "k": "name",
+                            "v": "BharathMalayalam"
+                          },
+                          {
+                            "k": "node_id",
+                            "v": "U_kgDODHB1Mg"
+                          },
+                          {
+                            "k": "organizations_url",
+                            "v": "https://api.github.com/users/BharathMalayalam/orgs"
+                          },
+                          {
+                            "k": "received_events_url",
+                            "v": "https://api.github.com/users/BharathMalayalam/received_events"
+                          },
+                          {
+                            "k": "repos_url",
+                            "v": "https://api.github.com/users/BharathMalayalam/repos"
+                          },
+                          {
+                            "k": "site_admin",
+                            "v": false
+                          },
+                          {
+                            "k": "starred_url",
+                            "v": "https://api.github.com/users/BharathMalayalam/starred{/owner}{/repo}"
+                          },
+                          {
+                            "k": "subscriptions_url",
+                            "v": "https://api.github.com/users/BharathMalayalam/subscriptions"
+                          },
+                          {
+                            "k": "type",
+                            "v": "User"
+                          },
+                          {
+                            "k": "url",
+                            "v": "https://api.github.com/users/BharathMalayalam"
+                          },
+                          {
+                            "k": "user_view_type",
+                            "v": "public"
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "k": "private",
+                      "v": false
+                    },
+                    {
+                      "k": "pull_request_creation_policy",
+                      "v": "all"
+                    },
+                    {
+                      "k": "pulls_url",
+                      "v": "https://api.github.com/repos/BharathMalayalam/CI-CD-Project-using-Git-Action/pulls{/number}"
+                    },
+                    {
+                      "k": "pushed_at",
+                      "v": 1781337356.0
+                    },
+                    {
+                      "k": "releases_url",
+                      "v": "https://api.github.com/repos/BharathMalayalam/CI-CD-Project-using-Git-Action/releases{/id}"
+                    },
+                    {
+                      "k": "size",
+                      "v": 0.0
+                    },
+                    {
+                      "k": "ssh_url",
+                      "v": "git@github.com:BharathMalayalam/CI-CD-Project-using-Git-Action.git"
+                    },
+                    {
+                      "k": "stargazers",
+                      "v": 0.0
+                    },
+                    {
+                      "k": "stargazers_count",
+                      "v": 0.0
+                    },
+                    {
+                      "k": "stargazers_url",
+                      "v": "https://api.github.com/repos/BharathMalayalam/CI-CD-Project-using-Git-Action/stargazers"
+                    },
+                    {
+                      "k": "statuses_url",
+                      "v": "https://api.github.com/repos/BharathMalayalam/CI-CD-Project-using-Git-Action/statuses/{sha}"
+                    },
+                    {
+                      "k": "subscribers_url",
+                      "v": "https://api.github.com/repos/BharathMalayalam/CI-CD-Project-using-Git-Action/subscribers"
+                    },
+                    {
+                      "k": "subscription_url",
+                      "v": "https://api.github.com/repos/BharathMalayalam/CI-CD-Project-using-Git-Action/subscription"
+                    },
+                    {
+                      "k": "svn_url",
+                      "v": "https://github.com/BharathMalayalam/CI-CD-Project-using-Git-Action"
+                    },
+                    {
+                      "k": "tags_url",
+                      "v": "https://api.github.com/repos/BharathMalayalam/CI-CD-Project-using-Git-Action/tags"
+                    },
+                    {
+                      "k": "teams_url",
+                      "v": "https://api.github.com/repos/BharathMalayalam/CI-CD-Project-using-Git-Action/teams"
+                    },
+                    {
+                      "k": "topics",
+                      "v": {
+                        "t": 1
+                      }
+                    },
+                    {
+                      "k": "trees_url",
+                      "v": "https://api.github.com/repos/BharathMalayalam/CI-CD-Project-using-Git-Action/git/trees{/sha}"
+                    },
+                    {
+                      "k": "updated_at",
+                      "v": "2026-06-13T07:48:17Z"
+                    },
+                    {
+                      "k": "url",
+                      "v": "https://api.github.com/repos/BharathMalayalam/CI-CD-Project-using-Git-Action"
+                    },
+                    {
+                      "k": "visibility",
+                      "v": "public"
+                    },
+                    {
+                      "k": "watchers",
+                      "v": 0.0
+                    },
+                    {
+                      "k": "watchers_count",
+                      "v": 0.0
+                    },
+                    {
+                      "k": "web_commit_signoff_required",
+                      "v": false
+                    }
+                  ]
+                }
+              },
+              {
+                "k": "sender",
+                "v": {
+                  "t": 2,
+                  "d": [
+                    {
+                      "k": "avatar_url",
+                      "v": "https://avatars.githubusercontent.com/u/208696626?v=4"
+                    },
+                    {
+                      "k": "events_url",
+                      "v": "https://api.github.com/users/BharathMalayalam/events{/privacy}"
+                    },
+                    {
+                      "k": "followers_url",
+                      "v": "https://api.github.com/users/BharathMalayalam/followers"
+                    },
+                    {
+                      "k": "following_url",
+                      "v": "https://api.github.com/users/BharathMalayalam/following{/other_user}"
+                    },
+                    {
+                      "k": "gists_url",
+                      "v": "https://api.github.com/users/BharathMalayalam/gists{/gist_id}"
+                    },
+                    {
+                      "k": "gravatar_id",
+                      "v": ""
+                    },
+                    {
+                      "k": "html_url",
+                      "v": "https://github.com/BharathMalayalam"
+                    },
+                    {
+                      "k": "id",
+                      "v": 208696626.0
+                    },
+                    {
+                      "k": "login",
+                      "v": "BharathMalayalam"
+                    },
+                    {
+                      "k": "node_id",
+                      "v": "U_kgDODHB1Mg"
+                    },
+                    {
+                      "k": "organizations_url",
+                      "v": "https://api.github.com/users/BharathMalayalam/orgs"
+                    },
+                    {
+                      "k": "received_events_url",
+                      "v": "https://api.github.com/users/BharathMalayalam/received_events"
+                    },
+                    {
+                      "k": "repos_url",
+                      "v": "https://api.github.com/users/BharathMalayalam/repos"
+                    },
+                    {
+                      "k": "site_admin",
+                      "v": false
+                    },
+                    {
+                      "k": "starred_url",
+                      "v": "https://api.github.com/users/BharathMalayalam/starred{/owner}{/repo}"
+                    },
+                    {
+                      "k": "subscriptions_url",
+                      "v": "https://api.github.com/users/BharathMalayalam/subscriptions"
+                    },
+                    {
+                      "k": "type",
+                      "v": "User"
+                    },
+                    {
+                      "k": "url",
+                      "v": "https://api.github.com/users/BharathMalayalam"
+                    },
+                    {
+                      "k": "user_view_type",
+                      "v": "public"
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "k": "workflow_ref",
+          "v": "BharathMalayalam/CI-CD-Project-using-Git-Action/.github/workflows/deploy.yml@refs/heads/main"
+        },
+        {
+          "k": "workflow_sha",
+          "v": "f85fe5636360e8e3bb753a1b6ac02d2d2ed50663"
+        },
+        {
+          "k": "repository_id",
+          "v": "1268132211"
+        },
+        {
+          "k": "triggering_actor",
+          "v": "BharathMalayalam"
+        }
+      ]
+    },
+    "inputs": {
+      "t": 2
+    },
+    "job": {
+      "t": 2,
+      "d": [
+        {
+          "k": "check_run_id",
+          "v": 81174513162.0
+        },
+        {
+          "k": "workflow_ref",
+          "v": "BharathMalayalam/CI-CD-Project-using-Git-Action/.github/workflows/deploy.yml@refs/heads/main"
+        },
+        {
+          "k": "workflow_sha",
+          "v": "f85fe5636360e8e3bb753a1b6ac02d2d2ed50663"
+        },
+        {
+          "k": "workflow_repository",
+          "v": "BharathMalayalam/CI-CD-Project-using-Git-Action"
+        },
+        {
+          "k": "workflow_file_path",
+          "v": ".github/workflows/deploy.yml"
+        }
+      ]
+    },
+    "matrix": null,
+    "needs": {
+      "t": 2
+    },
+    "strategy": {
+      "t": 2,
+      "d": [
+        {
+          "k": "fail-fast",
+          "v": true
+        },
+        {
+          "k": "job-index",
+          "v": 0.0
+        },
+        {
+          "k": "job-total",
+          "v": 1.0
+        },
+        {
+          "k": "max-parallel",
+          "v": 1.0
+        }
+      ]
+    },
+    "vars": {
+      "t": 2
+    }
+  },
+  "billingOwnerId": "U_kgDODHB1Mg"
+}
+[2026-06-13 07:56:11Z INFO JobRunner] Job ID 860944d9-723b-5a38-a79e-5f37b99ae5cb
+[2026-06-13 07:56:11Z INFO ConfigurationStore] currentAssemblyLocation: D:\Docker\actions-runner\bin\Runner.Worker.dll
+[2026-06-13 07:56:11Z INFO HostContext] Well known directory 'Bin': 'D:\Docker\actions-runner\bin'
+[2026-06-13 07:56:11Z INFO ConfigurationStore] binPath: D:\Docker\actions-runner\bin
+[2026-06-13 07:56:11Z INFO HostContext] Well known directory 'Bin': 'D:\Docker\actions-runner\bin'
+[2026-06-13 07:56:11Z INFO HostContext] Well known directory 'Root': 'D:\Docker\actions-runner'
+[2026-06-13 07:56:11Z INFO ConfigurationStore] RootFolder: D:\Docker\actions-runner
+[2026-06-13 07:56:11Z INFO HostContext] Well known directory 'Bin': 'D:\Docker\actions-runner\bin'
+[2026-06-13 07:56:11Z INFO HostContext] Well known directory 'Root': 'D:\Docker\actions-runner'
+[2026-06-13 07:56:11Z INFO HostContext] Well known config file 'Runner': 'D:\Docker\actions-runner\.runner'
+[2026-06-13 07:56:11Z INFO ConfigurationStore] ConfigFilePath: D:\Docker\actions-runner\.runner
+[2026-06-13 07:56:11Z INFO HostContext] Well known directory 'Bin': 'D:\Docker\actions-runner\bin'
+[2026-06-13 07:56:11Z INFO HostContext] Well known directory 'Root': 'D:\Docker\actions-runner'
+[2026-06-13 07:56:11Z INFO HostContext] Well known config file 'MigratedRunner': 'D:\Docker\actions-runner\.runner_migrated'
+[2026-06-13 07:56:11Z INFO ConfigurationStore] MigratedConfigFilePath: D:\Docker\actions-runner\.runner_migrated
+[2026-06-13 07:56:11Z INFO HostContext] Well known directory 'Bin': 'D:\Docker\actions-runner\bin'
+[2026-06-13 07:56:11Z INFO HostContext] Well known directory 'Root': 'D:\Docker\actions-runner'
+[2026-06-13 07:56:11Z INFO HostContext] Well known config file 'Credentials': 'D:\Docker\actions-runner\.credentials'
+[2026-06-13 07:56:11Z INFO ConfigurationStore] CredFilePath: D:\Docker\actions-runner\.credentials
+[2026-06-13 07:56:11Z INFO HostContext] Well known directory 'Bin': 'D:\Docker\actions-runner\bin'
+[2026-06-13 07:56:11Z INFO HostContext] Well known directory 'Root': 'D:\Docker\actions-runner'
+[2026-06-13 07:56:11Z INFO HostContext] Well known config file 'MigratedCredentials': 'D:\Docker\actions-runner\.credentials_migrated'
+[2026-06-13 07:56:11Z INFO ConfigurationStore] MigratedCredFilePath: D:\Docker\actions-runner\.credentials_migrated
+[2026-06-13 07:56:11Z INFO HostContext] Well known directory 'Bin': 'D:\Docker\actions-runner\bin'
+[2026-06-13 07:56:11Z INFO HostContext] Well known directory 'Root': 'D:\Docker\actions-runner'
+[2026-06-13 07:56:11Z INFO HostContext] Well known config file 'Service': 'D:\Docker\actions-runner\.service'
+[2026-06-13 07:56:11Z INFO ConfigurationStore] ServiceConfigFilePath: D:\Docker\actions-runner\.service
+[2026-06-13 07:56:11Z INFO ConfigurationStore] Read setting file: 417 chars
+[2026-06-13 07:56:12Z INFO JobRunner] Initializing launch client
+[2026-06-13 07:56:12Z INFO JobServerQueue] Initializing results client
+[2026-06-13 07:56:12Z INFO ResultServer] Creating websocket client ...wss://results-receiver.actions.githubusercontent.com/_ws/ingest.sock
+[2026-06-13 07:56:12Z INFO ResultServer] Attempting to start websocket client with delay 00:00:00.
+[2026-06-13 07:56:12Z INFO JobServerQueue] Start process web console line queue.
+[2026-06-13 07:56:12Z INFO JobServerQueue] Start process file upload queue.
+[2026-06-13 07:56:12Z INFO JobServerQueue] Start results file upload queue.
+[2026-06-13 07:56:12Z INFO JobServerQueue] Starting results-based upload queue...
+[2026-06-13 07:56:12Z INFO JobServerQueue] Start process timeline update queue.
+[2026-06-13 07:56:12Z INFO ExecutionContext] Initializing Job context
+[2026-06-13 07:56:12Z INFO ExecutionContext] Initialize GitHub context
+[2026-06-13 07:56:12Z INFO ExecutionContext] Initialize Env context
+[2026-06-13 07:56:12Z INFO HostContext] Well known directory 'Bin': 'D:\Docker\actions-runner\bin'
+[2026-06-13 07:56:12Z INFO HostContext] Well known directory 'Root': 'D:\Docker\actions-runner'
+[2026-06-13 07:56:12Z INFO HostContext] Well known directory 'Diag': 'D:\Docker\actions-runner\_diag'
+[2026-06-13 07:56:12Z INFO HostContext] Well known directory 'Bin': 'D:\Docker\actions-runner\bin'
+[2026-06-13 07:56:12Z INFO HostContext] Well known directory 'Root': 'D:\Docker\actions-runner'
+[2026-06-13 07:56:12Z INFO HostContext] Well known directory 'Diag': 'D:\Docker\actions-runner\_diag'
+[2026-06-13 07:56:12Z INFO JobRunner] Starting the job execution context.
+[2026-06-13 07:56:12Z INFO HostContext] Well known directory 'Bin': 'D:\Docker\actions-runner\bin'
+[2026-06-13 07:56:12Z INFO HostContext] Well known directory 'Root': 'D:\Docker\actions-runner'
+[2026-06-13 07:56:12Z INFO HostContext] Well known directory 'Work': 'D:\Docker\actions-runner\_work'
+[2026-06-13 07:56:12Z INFO JobRunner] Validating directory permissions for: 'D:\Docker\actions-runner\_work'
+[2026-06-13 07:56:12Z INFO HostContext] Well known directory 'Bin': 'D:\Docker\actions-runner\bin'
+[2026-06-13 07:56:12Z INFO HostContext] Well known directory 'Root': 'D:\Docker\actions-runner'
+[2026-06-13 07:56:12Z INFO HostContext] Well known directory 'Work': 'D:\Docker\actions-runner\_work'
+[2026-06-13 07:56:12Z INFO HostContext] Well known directory 'Tools': 'D:\Docker\actions-runner\_work\_tool'
+[2026-06-13 07:56:12Z INFO HostContext] Well known directory 'Bin': 'D:\Docker\actions-runner\bin'
+[2026-06-13 07:56:12Z INFO HostContext] Well known directory 'Root': 'D:\Docker\actions-runner'
+[2026-06-13 07:56:12Z INFO HostContext] Well known directory 'Work': 'D:\Docker\actions-runner\_work'
+[2026-06-13 07:56:12Z INFO HostContext] Well known directory 'Temp': 'D:\Docker\actions-runner\_work\_temp'
+[2026-06-13 07:56:12Z INFO JobRunner] Getting job extension.
+[2026-06-13 07:56:12Z INFO JobRunner] Initialize job. Getting all job steps.
+[2026-06-13 07:56:12Z INFO HostContext] Well known directory 'Bin': 'D:\Docker\actions-runner\bin'
+[2026-06-13 07:56:12Z INFO HostContext] Well known directory 'Root': 'D:\Docker\actions-runner'
+[2026-06-13 07:56:12Z INFO HostContext] Well known directory 'Diag': 'D:\Docker\actions-runner\_diag'
+[2026-06-13 07:56:12Z INFO HostContext] Well known directory 'Bin': 'D:\Docker\actions-runner\bin'
+[2026-06-13 07:56:12Z INFO HostContext] Well known directory 'Root': 'D:\Docker\actions-runner'
+[2026-06-13 07:56:12Z INFO HostContext] Well known directory 'Diag': 'D:\Docker\actions-runner\_diag'
+[2026-06-13 07:56:12Z INFO HostContext] Well known directory 'Bin': 'D:\Docker\actions-runner\bin'
+[2026-06-13 07:56:12Z INFO HostContext] Well known directory 'Root': 'D:\Docker\actions-runner'
+[2026-06-13 07:56:12Z INFO HostContext] Well known config file 'Credentials': 'D:\Docker\actions-runner\.credentials'
+[2026-06-13 07:56:12Z INFO HostContext] Well known directory 'Bin': 'D:\Docker\actions-runner\bin'
+[2026-06-13 07:56:12Z INFO HostContext] Well known directory 'Root': 'D:\Docker\actions-runner'
+[2026-06-13 07:56:12Z INFO HostContext] Well known config file 'SetupInfo': 'D:\Docker\actions-runner\.setup_info'
+[2026-06-13 07:56:12Z INFO HostContext] Well known directory 'Bin': 'D:\Docker\actions-runner\bin'
+[2026-06-13 07:56:12Z INFO HostContext] Well known directory 'Root': 'D:\Docker\actions-runner'
+[2026-06-13 07:56:12Z INFO HostContext] Well known directory 'Work': 'D:\Docker\actions-runner\_work'
+[2026-06-13 07:56:12Z INFO PipelineDirectoryManager] Loading tracking config if exists: D:\Docker\actions-runner\_work\_PipelineMapping\BharathMalayalam/CI-CD-Project-using-Git-Action\PipelineFolder.json
+[2026-06-13 07:56:12Z INFO PipelineDirectoryManager] Updating job run properties.
+[2026-06-13 07:56:12Z INFO HostContext] Well known directory 'Bin': 'D:\Docker\actions-runner\bin'
+[2026-06-13 07:56:12Z INFO HostContext] Well known directory 'Root': 'D:\Docker\actions-runner'
+[2026-06-13 07:56:12Z INFO HostContext] Well known directory 'Work': 'D:\Docker\actions-runner\_work'
+[2026-06-13 07:56:12Z INFO HostContext] Well known directory 'Bin': 'D:\Docker\actions-runner\bin'
+[2026-06-13 07:56:12Z INFO HostContext] Well known directory 'Root': 'D:\Docker\actions-runner'
+[2026-06-13 07:56:12Z INFO HostContext] Well known directory 'Work': 'D:\Docker\actions-runner\_work'
+[2026-06-13 07:56:12Z INFO HostContext] Well known directory 'Bin': 'D:\Docker\actions-runner\bin'
+[2026-06-13 07:56:12Z INFO HostContext] Well known directory 'Root': 'D:\Docker\actions-runner'
+[2026-06-13 07:56:12Z INFO HostContext] Well known directory 'Work': 'D:\Docker\actions-runner\_work'
+[2026-06-13 07:56:12Z INFO JobExtension] Downloading actions
+[2026-06-13 07:56:12Z INFO HostContext] Well known directory 'Bin': 'D:\Docker\actions-runner\bin'
+[2026-06-13 07:56:12Z INFO HostContext] Well known directory 'Root': 'D:\Docker\actions-runner'
+[2026-06-13 07:56:12Z INFO HostContext] Well known directory 'Work': 'D:\Docker\actions-runner\_work'
+[2026-06-13 07:56:12Z INFO HostContext] Well known directory 'Actions': 'D:\Docker\actions-runner\_work\_actions'
+[2026-06-13 07:56:12Z INFO Worker] Listening for cancel message from the channel.
+[2026-06-13 07:56:12Z INFO Worker] Waiting for the job to complete or for a cancel message from the channel.
+[2026-06-13 07:56:13Z INFO ResultServer] Successfully started websocket client.
+[2026-06-13 07:56:13Z INFO JobServerQueue] Try to append 1 batches web console lines for record '8847c123-19c6-4a27-8de5-7179a92e2cea', success rate: 1/1.
+[2026-06-13 07:56:13Z INFO JobServerQueue] Job timeline record has been updated for the first time.
+[2026-06-13 07:56:13Z INFO JobServerQueue] Try to append 1 batches web console lines for record '8847c123-19c6-4a27-8de5-7179a92e2cea', success rate: 1/1.
+[2026-06-13 07:56:13Z INFO HostContext] Well known directory 'Bin': 'D:\Docker\actions-runner\bin'
+[2026-06-13 07:56:13Z INFO HostContext] Well known directory 'Root': 'D:\Docker\actions-runner'
+[2026-06-13 07:56:13Z INFO HostContext] Well known directory 'Work': 'D:\Docker\actions-runner\_work'
+[2026-06-13 07:56:13Z INFO HostContext] Well known directory 'Actions': 'D:\Docker\actions-runner\_work\_actions'
+[2026-06-13 07:56:13Z INFO HostContext] Well known directory 'Bin': 'D:\Docker\actions-runner\bin'
+[2026-06-13 07:56:13Z INFO HostContext] Well known directory 'Root': 'D:\Docker\actions-runner'
+[2026-06-13 07:56:13Z INFO HostContext] Well known directory 'Work': 'D:\Docker\actions-runner\_work'
+[2026-06-13 07:56:13Z INFO HostContext] Well known directory 'Actions': 'D:\Docker\actions-runner\_work\_actions'
+[2026-06-13 07:56:13Z INFO ActionManager] Save archive 'https://codeload.github.com/actions/checkout/zip/f43a0e5ff2bd294095638e18286ca9a3d1956744' into D:\Docker\actions-runner\_work\_actions\_temp_2ad6e657-3459-428c-838e-e0fa0592b1e0\310d2cdc-fb9b-401b-bad1-e8ccc6d6e899.zip.
+[2026-06-13 07:56:13Z INFO ActionManager] Using Basic token for action archive download.
+[2026-06-13 07:56:14Z INFO JobServerQueue] Try to append 1 batches web console lines for record '8847c123-19c6-4a27-8de5-7179a92e2cea', success rate: 1/1.
+[2026-06-13 07:56:15Z INFO ActionManager] Request URL: https://codeload.github.com/actions/checkout/zip/f43a0e5ff2bd294095638e18286ca9a3d1956744 X-GitHub-Request-Id: CE99:12ECB8:2C397:186F04:6A2D0D17 Http Status: OK
+[2026-06-13 07:56:15Z INFO ActionManager] Finished getting action repository.
+[2026-06-13 07:56:15Z INFO HostContext] Well known directory 'Bin': 'D:\Docker\actions-runner\bin'
+[2026-06-13 07:56:15Z INFO HostContext] Well known directory 'Root': 'D:\Docker\actions-runner'
+[2026-06-13 07:56:15Z INFO HostContext] Well known directory 'Work': 'D:\Docker\actions-runner\_work'
+[2026-06-13 07:56:15Z INFO HostContext] Well known directory 'Actions': 'D:\Docker\actions-runner\_work\_actions'
+[2026-06-13 07:56:15Z INFO ActionManifestManagerLegacy] Load schema file with definitions: [
+  "null",
+  "boolean",
+  "number",
+  "string",
+  "sequence",
+  "mapping",
+  "any",
+  "action-root",
+  "inputs",
+  "input",
+  "outputs",
+  "output-definition",
+  "runs",
+  "container-runs",
+  "container-runs-args",
+  "container-runs-env",
+  "node-runs",
+  "plugin-runs",
+  "composite-runs",
+  "composite-steps",
+  "composite-step",
+  "run-step",
+  "uses-step",
+  "container-runs-context",
+  "output-value",
+  "input-default-context",
+  "non-empty-string",
+  "string-steps-context",
+  "boolean-steps-context",
+  "step-env",
+  "step-if",
+  "step-with"
+]
+[2026-06-13 07:56:16Z INFO ActionManifestManager] Load schema file with definitions: [
+  "null",
+  "boolean",
+  "number",
+  "string",
+  "sequence",
+  "mapping",
+  "any",
+  "action-root",
+  "inputs",
+  "input",
+  "outputs",
+  "output-definition",
+  "runs",
+  "container-runs",
+  "container-runs-args",
+  "container-runs-env",
+  "node-runs",
+  "plugin-runs",
+  "composite-runs",
+  "composite-steps",
+  "composite-step",
+  "run-step",
+  "uses-step",
+  "container-runs-context",
+  "output-value",
+  "input-default-context",
+  "non-empty-string",
+  "string-steps-context",
+  "boolean-steps-context",
+  "step-env",
+  "step-if",
+  "step-with"
+]
+[2026-06-13 07:56:16Z INFO HostContext] Well known directory 'Bin': 'D:\Docker\actions-runner\bin'
+[2026-06-13 07:56:16Z INFO HostContext] Well known directory 'Root': 'D:\Docker\actions-runner'
+[2026-06-13 07:56:16Z INFO HostContext] Well known directory 'Work': 'D:\Docker\actions-runner\_work'
+[2026-06-13 07:56:16Z INFO HostContext] Well known directory 'Actions': 'D:\Docker\actions-runner\_work\_actions'
+[2026-06-13 07:56:16Z INFO ActionManifestManagerLegacy] Loaded action.yml file: {
+  "name": "Checkout",
+  "description": "Checkout a Git repository at a particular version",
+  "inputs": {
+    "type": 2,
+    "map": [
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 4,
+          "col": 3,
+          "lit": "repository"
+        },
+        "value": {
+          "type": 3,
+          "file": 2,
+          "line": 6,
+          "col": 14,
+          "expr": "github.repository"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 7,
+          "col": 3,
+          "lit": "ref"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 12,
+          "col": 3,
+          "lit": "token"
+        },
+        "value": {
+          "type": 3,
+          "file": 2,
+          "line": 24,
+          "col": 14,
+          "expr": "github.token"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 25,
+          "col": 3,
+          "lit": "ssh-key"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 37,
+          "col": 3,
+          "lit": "ssh-known-hosts"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 42,
+          "col": 3,
+          "lit": "ssh-strict"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 47,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 48,
+          "col": 3,
+          "lit": "persist-credentials"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 50,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 51,
+          "col": 3,
+          "lit": "path"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 53,
+          "col": 3,
+          "lit": "clean"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 55,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 56,
+          "col": 3,
+          "lit": "sparse-checkout"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 60,
+          "col": 14,
+          "lit": ""
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 61,
+          "col": 3,
+          "lit": "sparse-checkout-cone-mode"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 64,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 65,
+          "col": 3,
+          "lit": "fetch-depth"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 67,
+          "col": 14,
+          "lit": "1"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 68,
+          "col": 3,
+          "lit": "fetch-tags"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 70,
+          "col": 14,
+          "lit": "false"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 71,
+          "col": 3,
+          "lit": "lfs"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 73,
+          "col": 14,
+          "lit": "false"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 74,
+          "col": 3,
+          "lit": "submodules"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 82,
+          "col": 14,
+          "lit": "false"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 83,
+          "col": 3,
+          "lit": "set-safe-directory"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 85,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 86,
+          "col": 3,
+          "lit": "github-server-url"
+        },
+        "value": ""
+      }
+    ]
+  },
+  "execution": {
+    "executionType": "nodeJS",
+    "hasPre": false,
+    "hasPost": true,
+    "script": "dist/index.js",
+    "pre": null,
+    "post": "dist/index.js",
+    "nodeVersion": "node16",
+    "cleanupCondition": "always()",
+    "initCondition": "always()"
+  },
+  "deprecated": null
+}
+[2026-06-13 07:56:16Z INFO ActionManager] Action node.js file: dist/index.js, no more preparation.
+[2026-06-13 07:56:16Z INFO HostContext] Well known directory 'Bin': 'D:\Docker\actions-runner\bin'
+[2026-06-13 07:56:16Z INFO HostContext] Well known directory 'Root': 'D:\Docker\actions-runner'
+[2026-06-13 07:56:16Z INFO HostContext] Well known directory 'Work': 'D:\Docker\actions-runner\_work'
+[2026-06-13 07:56:16Z INFO HostContext] Well known directory 'Actions': 'D:\Docker\actions-runner\_work\_actions'
+[2026-06-13 07:56:16Z INFO ActionManager] Load action that reference repository from 'D:\Docker\actions-runner\_work\_actions\actions\checkout\v3'
+[2026-06-13 07:56:16Z INFO HostContext] Well known directory 'Bin': 'D:\Docker\actions-runner\bin'
+[2026-06-13 07:56:16Z INFO HostContext] Well known directory 'Root': 'D:\Docker\actions-runner'
+[2026-06-13 07:56:16Z INFO HostContext] Well known directory 'Work': 'D:\Docker\actions-runner\_work'
+[2026-06-13 07:56:16Z INFO HostContext] Well known directory 'Actions': 'D:\Docker\actions-runner\_work\_actions'
+[2026-06-13 07:56:16Z INFO ActionManifestManagerLegacy] Loaded action.yml file: {
+  "name": "Checkout",
+  "description": "Checkout a Git repository at a particular version",
+  "inputs": {
+    "type": 2,
+    "map": [
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 4,
+          "col": 3,
+          "lit": "repository"
+        },
+        "value": {
+          "type": 3,
+          "file": 2,
+          "line": 6,
+          "col": 14,
+          "expr": "github.repository"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 7,
+          "col": 3,
+          "lit": "ref"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 12,
+          "col": 3,
+          "lit": "token"
+        },
+        "value": {
+          "type": 3,
+          "file": 2,
+          "line": 24,
+          "col": 14,
+          "expr": "github.token"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 25,
+          "col": 3,
+          "lit": "ssh-key"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 37,
+          "col": 3,
+          "lit": "ssh-known-hosts"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 42,
+          "col": 3,
+          "lit": "ssh-strict"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 47,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 48,
+          "col": 3,
+          "lit": "persist-credentials"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 50,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 51,
+          "col": 3,
+          "lit": "path"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 53,
+          "col": 3,
+          "lit": "clean"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 55,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 56,
+          "col": 3,
+          "lit": "sparse-checkout"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 60,
+          "col": 14,
+          "lit": ""
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 61,
+          "col": 3,
+          "lit": "sparse-checkout-cone-mode"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 64,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 65,
+          "col": 3,
+          "lit": "fetch-depth"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 67,
+          "col": 14,
+          "lit": "1"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 68,
+          "col": 3,
+          "lit": "fetch-tags"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 70,
+          "col": 14,
+          "lit": "false"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 71,
+          "col": 3,
+          "lit": "lfs"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 73,
+          "col": 14,
+          "lit": "false"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 74,
+          "col": 3,
+          "lit": "submodules"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 82,
+          "col": 14,
+          "lit": "false"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 83,
+          "col": 3,
+          "lit": "set-safe-directory"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 85,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 86,
+          "col": 3,
+          "lit": "github-server-url"
+        },
+        "value": ""
+      }
+    ]
+  },
+  "execution": {
+    "executionType": "nodeJS",
+    "hasPre": false,
+    "hasPost": true,
+    "script": "dist/index.js",
+    "pre": null,
+    "post": "dist/index.js",
+    "nodeVersion": "node16",
+    "cleanupCondition": "always()",
+    "initCondition": "always()"
+  },
+  "deprecated": null
+}
+[2026-06-13 07:56:16Z INFO ActionManager] Action pre node.js file: N/A.
+[2026-06-13 07:56:16Z INFO ActionManager] Action node.js file: dist/index.js.
+[2026-06-13 07:56:16Z INFO ActionManager] Action post node.js file: dist/index.js.
+[2026-06-13 07:56:16Z INFO JobExtension] Adding .
+[2026-06-13 07:56:16Z INFO JobExtension] Adding .
+[2026-06-13 07:56:16Z INFO JobExtension] Adding .
+[2026-06-13 07:56:16Z INFO JobExtension] Adding .
+[2026-06-13 07:56:16Z INFO JobExtension] Adding .
+[2026-06-13 07:56:16Z INFO HostContext] Well known directory 'Bin': 'D:\Docker\actions-runner\bin'
+[2026-06-13 07:56:16Z INFO HostContext] Well known directory 'Root': 'D:\Docker\actions-runner'
+[2026-06-13 07:56:16Z INFO HostContext] Well known directory 'Diag': 'D:\Docker\actions-runner\_diag'
+[2026-06-13 07:56:16Z INFO HostContext] Well known directory 'Bin': 'D:\Docker\actions-runner\bin'
+[2026-06-13 07:56:16Z INFO HostContext] Well known directory 'Root': 'D:\Docker\actions-runner'
+[2026-06-13 07:56:16Z INFO HostContext] Well known directory 'Diag': 'D:\Docker\actions-runner\_diag'
+[2026-06-13 07:56:16Z INFO HostContext] Well known directory 'Bin': 'D:\Docker\actions-runner\bin'
+[2026-06-13 07:56:16Z INFO HostContext] Well known directory 'Root': 'D:\Docker\actions-runner'
+[2026-06-13 07:56:16Z INFO HostContext] Well known directory 'Diag': 'D:\Docker\actions-runner\_diag'
+[2026-06-13 07:56:16Z INFO HostContext] Well known directory 'Bin': 'D:\Docker\actions-runner\bin'
+[2026-06-13 07:56:16Z INFO HostContext] Well known directory 'Root': 'D:\Docker\actions-runner'
+[2026-06-13 07:56:16Z INFO HostContext] Well known directory 'Diag': 'D:\Docker\actions-runner\_diag'
+[2026-06-13 07:56:16Z INFO HostContext] Well known directory 'Bin': 'D:\Docker\actions-runner\bin'
+[2026-06-13 07:56:16Z INFO HostContext] Well known directory 'Root': 'D:\Docker\actions-runner'
+[2026-06-13 07:56:16Z INFO HostContext] Well known directory 'Diag': 'D:\Docker\actions-runner\_diag'
+[2026-06-13 07:56:16Z INFO HostContext] Well known directory 'Bin': 'D:\Docker\actions-runner\bin'
+[2026-06-13 07:56:16Z INFO HostContext] Well known directory 'Root': 'D:\Docker\actions-runner'
+[2026-06-13 07:56:16Z INFO HostContext] Well known directory 'Diag': 'D:\Docker\actions-runner\_diag'
+[2026-06-13 07:56:16Z INFO HostContext] Well known directory 'Bin': 'D:\Docker\actions-runner\bin'
+[2026-06-13 07:56:16Z INFO HostContext] Well known directory 'Root': 'D:\Docker\actions-runner'
+[2026-06-13 07:56:16Z INFO HostContext] Well known directory 'Diag': 'D:\Docker\actions-runner\_diag'
+[2026-06-13 07:56:16Z INFO HostContext] Well known directory 'Bin': 'D:\Docker\actions-runner\bin'
+[2026-06-13 07:56:16Z INFO HostContext] Well known directory 'Root': 'D:\Docker\actions-runner'
+[2026-06-13 07:56:16Z INFO HostContext] Well known directory 'Diag': 'D:\Docker\actions-runner\_diag'
+[2026-06-13 07:56:16Z INFO HostContext] Well known directory 'Bin': 'D:\Docker\actions-runner\bin'
+[2026-06-13 07:56:16Z INFO HostContext] Well known directory 'Root': 'D:\Docker\actions-runner'
+[2026-06-13 07:56:16Z INFO HostContext] Well known directory 'Diag': 'D:\Docker\actions-runner\_diag'
+[2026-06-13 07:56:16Z INFO HostContext] Well known directory 'Bin': 'D:\Docker\actions-runner\bin'
+[2026-06-13 07:56:16Z INFO HostContext] Well known directory 'Root': 'D:\Docker\actions-runner'
+[2026-06-13 07:56:16Z INFO HostContext] Well known directory 'Diag': 'D:\Docker\actions-runner\_diag'
+[2026-06-13 07:56:16Z INFO JobServerQueue] Try to append 1 batches web console lines for record '8847c123-19c6-4a27-8de5-7179a92e2cea', success rate: 1/1.
+[2026-06-13 07:56:16Z INFO JobExtension] Total accessible running process: 269.
+[2026-06-13 07:56:16Z INFO HostContext] Well known directory 'Bin': 'D:\Docker\actions-runner\bin'
+[2026-06-13 07:56:16Z INFO HostContext] Well known directory 'Root': 'D:\Docker\actions-runner'
+[2026-06-13 07:56:16Z INFO HostContext] Well known directory 'Work': 'D:\Docker\actions-runner\_work'
+[2026-06-13 07:56:16Z INFO JobExtension] Start checking server connectivity.
+[2026-06-13 07:56:16Z INFO JobExtension] Check server connectivity for https://broker.actions.githubusercontent.com/health.
+[2026-06-13 07:56:16Z INFO JobExtension] Check server connectivity for https://token.actions.githubusercontent.com/ready.
+[2026-06-13 07:56:16Z INFO JobExtension] Check server connectivity for https://run.actions.githubusercontent.com/health.
+[2026-06-13 07:56:16Z INFO JobExtension] Start checking service connectivity in background.
+[2026-06-13 07:56:16Z INFO ExecutionContext] Publish step telemetry for current step {
+  "action": "setup_job",
+  "type": "runner",
+  "stage": "Pre",
+  "stepId": "8847c123-19c6-4a27-8de5-7179a92e2cea",
+  "result": "succeeded",
+  "errorMessages": [],
+  "executionTimeInSeconds": 5,
+  "startTime": "2026-06-13T07:56:12.4468088Z",
+  "finishTime": "2026-06-13T07:56:16.5747545Z"
+}.
+[2026-06-13 07:56:16Z INFO JobRunner] Total job steps: 5.
+[2026-06-13 07:56:16Z INFO JobRunner] Run all job steps.
+[2026-06-13 07:56:16Z INFO DapDebugger] DapDebugger initialized
+[2026-06-13 07:56:16Z INFO StepsRunner] Processing step: DisplayName='Checkout code'
+[2026-06-13 07:56:16Z INFO StepsRunner] Evaluating: success()
+[2026-06-13 07:56:16Z INFO StepsRunner] Result: true
+[2026-06-13 07:56:16Z INFO StepsRunner] Starting the step.
+[2026-06-13 07:56:16Z INFO HostContext] Well known directory 'Bin': 'D:\Docker\actions-runner\bin'
+[2026-06-13 07:56:16Z INFO HostContext] Well known directory 'Root': 'D:\Docker\actions-runner'
+[2026-06-13 07:56:16Z INFO HostContext] Well known directory 'Work': 'D:\Docker\actions-runner\_work'
+[2026-06-13 07:56:16Z INFO StepsRunner] Which2: 'chcp'
+[2026-06-13 07:56:16Z INFO StepsRunner] Location: 'C:\Windows\system32\chcp.COM'
+[2026-06-13 07:56:16Z INFO ProcessInvokerWrapper] Starting process:
+[2026-06-13 07:56:16Z INFO ProcessInvokerWrapper]   File name: 'C:\Windows\system32\chcp.COM'
+[2026-06-13 07:56:16Z INFO ProcessInvokerWrapper]   Arguments: '65001'
+[2026-06-13 07:56:16Z INFO ProcessInvokerWrapper]   Working directory: 'D:\Docker\actions-runner\_work'
+[2026-06-13 07:56:16Z INFO ProcessInvokerWrapper]   Require exit code zero: 'False'
+[2026-06-13 07:56:16Z INFO ProcessInvokerWrapper]   Encoding web name:  ; code page: ''
+[2026-06-13 07:56:16Z INFO ProcessInvokerWrapper]   Force kill process on cancellation: 'False'
+[2026-06-13 07:56:16Z INFO ProcessInvokerWrapper]   Redirected STDIN: 'False'
+[2026-06-13 07:56:16Z INFO ProcessInvokerWrapper]   Persist current code page: 'True'
+[2026-06-13 07:56:16Z INFO ProcessInvokerWrapper]   Keep redirected STDIN open: 'False'
+[2026-06-13 07:56:16Z INFO ProcessInvokerWrapper]   High priority process: 'False'
+[2026-06-13 07:56:16Z INFO ProcessInvokerWrapper] Process started with process id 16004, waiting for process exit.
+[2026-06-13 07:56:16Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2026-06-13 07:56:16Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2026-06-13 07:56:16Z INFO ProcessInvokerWrapper] Finished process 16004 with exit code 0, and elapsed time 00:00:00.0515941.
+[2026-06-13 07:56:16Z INFO StepsRunner] Successfully returned to code page 65001 (UTF8)
+[2026-06-13 07:56:16Z INFO HostContext] Well known directory 'Bin': 'D:\Docker\actions-runner\bin'
+[2026-06-13 07:56:16Z INFO HostContext] Well known directory 'Root': 'D:\Docker\actions-runner'
+[2026-06-13 07:56:16Z INFO HostContext] Well known directory 'Work': 'D:\Docker\actions-runner\_work'
+[2026-06-13 07:56:16Z INFO HostContext] Well known directory 'Actions': 'D:\Docker\actions-runner\_work\_actions'
+[2026-06-13 07:56:16Z INFO ActionManager] Load action that reference repository from 'D:\Docker\actions-runner\_work\_actions\actions\checkout\v3'
+[2026-06-13 07:56:16Z INFO HostContext] Well known directory 'Bin': 'D:\Docker\actions-runner\bin'
+[2026-06-13 07:56:16Z INFO HostContext] Well known directory 'Root': 'D:\Docker\actions-runner'
+[2026-06-13 07:56:16Z INFO HostContext] Well known directory 'Work': 'D:\Docker\actions-runner\_work'
+[2026-06-13 07:56:16Z INFO HostContext] Well known directory 'Actions': 'D:\Docker\actions-runner\_work\_actions'
+[2026-06-13 07:56:16Z INFO ActionManifestManagerLegacy] Loaded action.yml file: {
+  "name": "Checkout",
+  "description": "Checkout a Git repository at a particular version",
+  "inputs": {
+    "type": 2,
+    "map": [
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 4,
+          "col": 3,
+          "lit": "repository"
+        },
+        "value": {
+          "type": 3,
+          "file": 2,
+          "line": 6,
+          "col": 14,
+          "expr": "github.repository"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 7,
+          "col": 3,
+          "lit": "ref"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 12,
+          "col": 3,
+          "lit": "token"
+        },
+        "value": {
+          "type": 3,
+          "file": 2,
+          "line": 24,
+          "col": 14,
+          "expr": "github.token"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 25,
+          "col": 3,
+          "lit": "ssh-key"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 37,
+          "col": 3,
+          "lit": "ssh-known-hosts"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 42,
+          "col": 3,
+          "lit": "ssh-strict"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 47,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 48,
+          "col": 3,
+          "lit": "persist-credentials"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 50,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 51,
+          "col": 3,
+          "lit": "path"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 53,
+          "col": 3,
+          "lit": "clean"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 55,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 56,
+          "col": 3,
+          "lit": "sparse-checkout"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 60,
+          "col": 14,
+          "lit": ""
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 61,
+          "col": 3,
+          "lit": "sparse-checkout-cone-mode"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 64,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 65,
+          "col": 3,
+          "lit": "fetch-depth"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 67,
+          "col": 14,
+          "lit": "1"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 68,
+          "col": 3,
+          "lit": "fetch-tags"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 70,
+          "col": 14,
+          "lit": "false"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 71,
+          "col": 3,
+          "lit": "lfs"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 73,
+          "col": 14,
+          "lit": "false"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 74,
+          "col": 3,
+          "lit": "submodules"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 82,
+          "col": 14,
+          "lit": "false"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 83,
+          "col": 3,
+          "lit": "set-safe-directory"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 85,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 86,
+          "col": 3,
+          "lit": "github-server-url"
+        },
+        "value": ""
+      }
+    ]
+  },
+  "execution": {
+    "executionType": "nodeJS",
+    "hasPre": false,
+    "hasPost": true,
+    "script": "dist/index.js",
+    "pre": null,
+    "post": "dist/index.js",
+    "nodeVersion": "node16",
+    "cleanupCondition": "always()",
+    "initCondition": "always()"
+  },
+  "deprecated": null
+}
+[2026-06-13 07:56:16Z INFO ActionManager] Action pre node.js file: N/A.
+[2026-06-13 07:56:16Z INFO ActionManager] Action node.js file: dist/index.js.
+[2026-06-13 07:56:16Z INFO ActionManager] Action post node.js file: dist/index.js.
+[2026-06-13 07:56:16Z INFO ExecutionContext] Reserve record order 7 to 12 for post job actions.
+[2026-06-13 07:56:16Z INFO HostContext] Well known directory 'Bin': 'D:\Docker\actions-runner\bin'
+[2026-06-13 07:56:16Z INFO HostContext] Well known directory 'Root': 'D:\Docker\actions-runner'
+[2026-06-13 07:56:16Z INFO HostContext] Well known directory 'Diag': 'D:\Docker\actions-runner\_diag'
+[2026-06-13 07:56:16Z INFO HostContext] Well known directory 'Bin': 'D:\Docker\actions-runner\bin'
+[2026-06-13 07:56:16Z INFO HostContext] Well known directory 'Root': 'D:\Docker\actions-runner'
+[2026-06-13 07:56:16Z INFO HostContext] Well known directory 'Diag': 'D:\Docker\actions-runner\_diag'
+[2026-06-13 07:56:16Z INFO HostContext] Well known directory 'Bin': 'D:\Docker\actions-runner\bin'
+[2026-06-13 07:56:16Z INFO HostContext] Well known directory 'Root': 'D:\Docker\actions-runner'
+[2026-06-13 07:56:16Z INFO HostContext] Well known directory 'Work': 'D:\Docker\actions-runner\_work'
+[2026-06-13 07:56:16Z INFO HostContext] Well known directory 'Temp': 'D:\Docker\actions-runner\_work\_temp'
+[2026-06-13 07:56:16Z INFO ExecutionContext] Write event payload to D:\Docker\actions-runner\_work\_temp\_github_workflow\event.json
+[2026-06-13 07:56:16Z INFO HostContext] Well known directory 'Bin': 'D:\Docker\actions-runner\bin'
+[2026-06-13 07:56:16Z INFO HostContext] Well known directory 'Root': 'D:\Docker\actions-runner'
+[2026-06-13 07:56:16Z INFO HostContext] Well known directory 'Work': 'D:\Docker\actions-runner\_work'
+[2026-06-13 07:56:16Z INFO HostContext] Well known directory 'Temp': 'D:\Docker\actions-runner\_work\_temp'
+[2026-06-13 07:56:16Z INFO ExtensionManager] Getting extensions for interface: 'GitHub.Runner.Worker.IFileCommandExtension'
+[2026-06-13 07:56:16Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.AddPathFileCommand, Runner.Worker
+[2026-06-13 07:56:16Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.SetEnvFileCommand, Runner.Worker
+[2026-06-13 07:56:16Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.CreateStepSummaryCommand, Runner.Worker
+[2026-06-13 07:56:16Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.SaveStateFileCommand, Runner.Worker
+[2026-06-13 07:56:16Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.SetOutputFileCommand, Runner.Worker
+[2026-06-13 07:56:16Z INFO ActionManifestManagerLegacy] Input 'repository': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 6,
+  "col": 14,
+  "lit": "BharathMalayalam/CI-CD-Project-using-Git-Action"
+}
+[2026-06-13 07:56:16Z INFO ActionManifestManagerLegacy] Input 'ref': default value evaluate result: ""
+[2026-06-13 07:56:16Z INFO ActionManifestManagerLegacy] Input 'token': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 24,
+  "col": 14,
+  "lit": "***"
+}
+[2026-06-13 07:56:16Z INFO ActionManifestManagerLegacy] Input 'ssh-key': default value evaluate result: ""
+[2026-06-13 07:56:16Z INFO ActionManifestManagerLegacy] Input 'ssh-known-hosts': default value evaluate result: ""
+[2026-06-13 07:56:16Z INFO ActionManifestManagerLegacy] Input 'ssh-strict': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 47,
+  "col": 14,
+  "lit": "true"
+}
+[2026-06-13 07:56:16Z INFO ActionManifestManagerLegacy] Input 'persist-credentials': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 50,
+  "col": 14,
+  "lit": "true"
+}
+[2026-06-13 07:56:16Z INFO ActionManifestManagerLegacy] Input 'path': default value evaluate result: ""
+[2026-06-13 07:56:16Z INFO ActionManifestManagerLegacy] Input 'clean': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 55,
+  "col": 14,
+  "lit": "true"
+}
+[2026-06-13 07:56:16Z INFO ActionManifestManagerLegacy] Input 'sparse-checkout': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 60,
+  "col": 14,
+  "lit": ""
+}
+[2026-06-13 07:56:16Z INFO ActionManifestManagerLegacy] Input 'sparse-checkout-cone-mode': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 64,
+  "col": 14,
+  "lit": "true"
+}
+[2026-06-13 07:56:16Z INFO ActionManifestManagerLegacy] Input 'fetch-depth': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 67,
+  "col": 14,
+  "lit": "1"
+}
+[2026-06-13 07:56:16Z INFO ActionManifestManagerLegacy] Input 'fetch-tags': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 70,
+  "col": 14,
+  "lit": "false"
+}
+[2026-06-13 07:56:16Z INFO ActionManifestManagerLegacy] Input 'lfs': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 73,
+  "col": 14,
+  "lit": "false"
+}
+[2026-06-13 07:56:16Z INFO ActionManifestManagerLegacy] Input 'submodules': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 82,
+  "col": 14,
+  "lit": "false"
+}
+[2026-06-13 07:56:16Z INFO ActionManifestManagerLegacy] Input 'set-safe-directory': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 85,
+  "col": 14,
+  "lit": "true"
+}
+[2026-06-13 07:56:16Z INFO ActionManifestManagerLegacy] Input 'github-server-url': default value evaluate result: ""
+[2026-06-13 07:56:16Z INFO ExtensionManager] Getting extensions for interface: 'GitHub.Runner.Worker.IActionCommandExtension'
+[2026-06-13 07:56:16Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.InternalPluginSetRepoPathCommandExtension, Runner.Worker
+[2026-06-13 07:56:16Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.SetEnvCommandExtension, Runner.Worker
+[2026-06-13 07:56:16Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.SetOutputCommandExtension, Runner.Worker
+[2026-06-13 07:56:16Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.SaveStateCommandExtension, Runner.Worker
+[2026-06-13 07:56:16Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.AddPathCommandExtension, Runner.Worker
+[2026-06-13 07:56:16Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.AddMaskCommandExtension, Runner.Worker
+[2026-06-13 07:56:16Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.AddMatcherCommandExtension, Runner.Worker
+[2026-06-13 07:56:16Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.RemoveMatcherCommandExtension, Runner.Worker
+[2026-06-13 07:56:16Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.WarningCommandExtension, Runner.Worker
+[2026-06-13 07:56:16Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.ErrorCommandExtension, Runner.Worker
+[2026-06-13 07:56:16Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.NoticeCommandExtension, Runner.Worker
+[2026-06-13 07:56:16Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.DebugCommandExtension, Runner.Worker
+[2026-06-13 07:56:16Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.GroupCommandExtension, Runner.Worker
+[2026-06-13 07:56:16Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.EndGroupCommandExtension, Runner.Worker
+[2026-06-13 07:56:16Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.EchoCommandExtension, Runner.Worker
+[2026-06-13 07:56:16Z INFO ActionCommandManager] Register action command extension for command internal-set-repo-path
+[2026-06-13 07:56:16Z INFO ActionCommandManager] Register action command extension for command set-env
+[2026-06-13 07:56:16Z INFO ActionCommandManager] Register action command extension for command set-output
+[2026-06-13 07:56:16Z INFO ActionCommandManager] Register action command extension for command save-state
+[2026-06-13 07:56:16Z INFO ActionCommandManager] Register action command extension for command add-path
+[2026-06-13 07:56:16Z INFO ActionCommandManager] Register action command extension for command add-mask
+[2026-06-13 07:56:16Z INFO ActionCommandManager] Register action command extension for command add-matcher
+[2026-06-13 07:56:16Z INFO ActionCommandManager] Register action command extension for command remove-matcher
+[2026-06-13 07:56:16Z INFO ActionCommandManager] Register action command extension for command warning
+[2026-06-13 07:56:16Z INFO ActionCommandManager] Register action command extension for command error
+[2026-06-13 07:56:16Z INFO ActionCommandManager] Register action command extension for command notice
+[2026-06-13 07:56:16Z INFO ActionCommandManager] Register action command extension for command debug
+[2026-06-13 07:56:16Z INFO ActionCommandManager] Register action command extension for command group
+[2026-06-13 07:56:16Z INFO ActionCommandManager] Register action command extension for command endgroup
+[2026-06-13 07:56:16Z INFO ActionCommandManager] Register action command extension for command echo
+[2026-06-13 07:56:17Z INFO HostContext] Well known directory 'Bin': 'D:\Docker\actions-runner\bin'
+[2026-06-13 07:56:17Z INFO HostContext] Well known directory 'Root': 'D:\Docker\actions-runner'
+[2026-06-13 07:56:17Z INFO HostContext] Well known directory 'Externals': 'D:\Docker\actions-runner\externals'
+[2026-06-13 07:56:17Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'b0a95b4f-58ba-4426-8405-66f5affae6e0', success rate: 1/1.
+[2026-06-13 07:56:17Z INFO ProcessInvokerWrapper] Starting process:
+[2026-06-13 07:56:17Z INFO ProcessInvokerWrapper]   File name: 'D:\Docker\actions-runner\externals\node20\bin\node.exe'
+[2026-06-13 07:56:17Z INFO ProcessInvokerWrapper]   Arguments: '"D:\Docker\actions-runner\_work\_actions\actions\checkout\v3\dist/index.js"'
+[2026-06-13 07:56:17Z INFO ProcessInvokerWrapper]   Working directory: 'D:\Docker\actions-runner\_work\CI-CD-Project-using-Git-Action\CI-CD-Project-using-Git-Action'
+[2026-06-13 07:56:17Z INFO ProcessInvokerWrapper]   Require exit code zero: 'False'
+[2026-06-13 07:56:17Z INFO ProcessInvokerWrapper]   Encoding web name: utf-8 ; code page: '65001'
+[2026-06-13 07:56:17Z INFO ProcessInvokerWrapper]   Force kill process on cancellation: 'False'
+[2026-06-13 07:56:17Z INFO ProcessInvokerWrapper]   Redirected STDIN: 'False'
+[2026-06-13 07:56:17Z INFO ProcessInvokerWrapper]   Persist current code page: 'True'
+[2026-06-13 07:56:17Z INFO ProcessInvokerWrapper]   Keep redirected STDIN open: 'False'
+[2026-06-13 07:56:17Z INFO ProcessInvokerWrapper]   High priority process: 'False'
+[2026-06-13 07:56:17Z INFO ProcessInvokerWrapper] Process started with process id 12304, waiting for process exit.
+[2026-06-13 07:56:17Z INFO JobServerQueue] Try to upload 1 log files or attachments, success rate: 1/1.
+[2026-06-13 07:56:17Z INFO JobServerQueue] Got a step log file to send to results service.
+[2026-06-13 07:56:17Z INFO JobServerQueue] Starting upload of step log file to results service ResultsLog, D:\Docker\actions-runner\_diag\blocks\a5fd09c1-9c5e-4f0d-b255-cfd8732d5a5b_8847c123-19c6-4a27-8de5-7179a92e2cea.1
+[2026-06-13 07:56:18Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'b0a95b4f-58ba-4426-8405-66f5affae6e0', success rate: 1/1.
+[2026-06-13 07:56:18Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'b0a95b4f-58ba-4426-8405-66f5affae6e0', success rate: 1/1.
+[2026-06-13 07:56:18Z INFO AddMaskCommandExtension] Add new secret mask with length of 588
+[2026-06-13 07:56:18Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'b0a95b4f-58ba-4426-8405-66f5affae6e0', success rate: 1/1.
+[2026-06-13 07:56:18Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'b0a95b4f-58ba-4426-8405-66f5affae6e0', success rate: 1/1.
+[2026-06-13 07:56:19Z INFO JobServerQueue] Tried to upload 1 file(s) to results, success rate: 1/1.
+[2026-06-13 07:56:20Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'b0a95b4f-58ba-4426-8405-66f5affae6e0', success rate: 1/1.
+[2026-06-13 07:56:20Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'b0a95b4f-58ba-4426-8405-66f5affae6e0', success rate: 1/1.
+[2026-06-13 07:56:22Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'b0a95b4f-58ba-4426-8405-66f5affae6e0', success rate: 1/1.
+[2026-06-13 07:56:22Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'b0a95b4f-58ba-4426-8405-66f5affae6e0', success rate: 1/1.
+[2026-06-13 07:56:22Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'b0a95b4f-58ba-4426-8405-66f5affae6e0', success rate: 1/1.
+[2026-06-13 07:56:23Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'b0a95b4f-58ba-4426-8405-66f5affae6e0', success rate: 1/1.
+[2026-06-13 07:56:23Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'b0a95b4f-58ba-4426-8405-66f5affae6e0', success rate: 1/1.
+[2026-06-13 07:56:25Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'b0a95b4f-58ba-4426-8405-66f5affae6e0', success rate: 1/1.
+[2026-06-13 07:56:25Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'b0a95b4f-58ba-4426-8405-66f5affae6e0', success rate: 1/1.
+[2026-06-13 07:56:26Z INFO HostContext] Well known directory 'Bin': 'D:\Docker\actions-runner\bin'
+[2026-06-13 07:56:26Z INFO HostContext] Well known directory 'Root': 'D:\Docker\actions-runner'
+[2026-06-13 07:56:26Z INFO HostContext] Well known directory 'Work': 'D:\Docker\actions-runner\_work'
+[2026-06-13 07:56:27Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'b0a95b4f-58ba-4426-8405-66f5affae6e0', success rate: 1/1.
+[2026-06-13 07:56:28Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'b0a95b4f-58ba-4426-8405-66f5affae6e0', success rate: 1/1.
+[2026-06-13 07:56:28Z INFO JobServerQueue] Try to append 2 batches web console lines for record 'b0a95b4f-58ba-4426-8405-66f5affae6e0', success rate: 2/2.
+[2026-06-13 07:56:28Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'b0a95b4f-58ba-4426-8405-66f5affae6e0', success rate: 1/1.
+[2026-06-13 07:56:30Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'b0a95b4f-58ba-4426-8405-66f5affae6e0', success rate: 1/1.
+[2026-06-13 07:56:31Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'b0a95b4f-58ba-4426-8405-66f5affae6e0', success rate: 1/1.
+[2026-06-13 07:56:31Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'b0a95b4f-58ba-4426-8405-66f5affae6e0', success rate: 1/1.
+[2026-06-13 07:56:33Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'b0a95b4f-58ba-4426-8405-66f5affae6e0', success rate: 1/1.
+[2026-06-13 07:56:34Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'b0a95b4f-58ba-4426-8405-66f5affae6e0', success rate: 1/1.
+[2026-06-13 07:56:34Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'b0a95b4f-58ba-4426-8405-66f5affae6e0', success rate: 1/1.
+[2026-06-13 07:56:35Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'b0a95b4f-58ba-4426-8405-66f5affae6e0', success rate: 1/1.
+[2026-06-13 07:56:36Z INFO HostContext] Well known directory 'Bin': 'D:\Docker\actions-runner\bin'
+[2026-06-13 07:56:36Z INFO HostContext] Well known directory 'Root': 'D:\Docker\actions-runner'
+[2026-06-13 07:56:36Z INFO HostContext] Well known directory 'Work': 'D:\Docker\actions-runner\_work'
+[2026-06-13 07:56:36Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'b0a95b4f-58ba-4426-8405-66f5affae6e0', success rate: 1/1.
+[2026-06-13 07:56:37Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'b0a95b4f-58ba-4426-8405-66f5affae6e0', success rate: 1/1.
+[2026-06-13 07:56:38Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'b0a95b4f-58ba-4426-8405-66f5affae6e0', success rate: 1/1.
+[2026-06-13 07:56:40Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'b0a95b4f-58ba-4426-8405-66f5affae6e0', success rate: 1/1.
+[2026-06-13 07:56:41Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'b0a95b4f-58ba-4426-8405-66f5affae6e0', success rate: 1/1.
+[2026-06-13 07:56:42Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'b0a95b4f-58ba-4426-8405-66f5affae6e0', success rate: 1/1.
+[2026-06-13 07:56:43Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'b0a95b4f-58ba-4426-8405-66f5affae6e0', success rate: 1/1.
+[2026-06-13 07:56:44Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'b0a95b4f-58ba-4426-8405-66f5affae6e0', success rate: 1/1.
+[2026-06-13 07:56:45Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'b0a95b4f-58ba-4426-8405-66f5affae6e0', success rate: 1/1.
+[2026-06-13 07:56:46Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'b0a95b4f-58ba-4426-8405-66f5affae6e0', success rate: 1/1.
+[2026-06-13 07:56:46Z INFO HostContext] Well known directory 'Bin': 'D:\Docker\actions-runner\bin'
+[2026-06-13 07:56:46Z INFO HostContext] Well known directory 'Root': 'D:\Docker\actions-runner'
+[2026-06-13 07:56:46Z INFO HostContext] Well known directory 'Work': 'D:\Docker\actions-runner\_work'
+[2026-06-13 07:56:47Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'b0a95b4f-58ba-4426-8405-66f5affae6e0', success rate: 1/1.
+[2026-06-13 07:56:48Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'b0a95b4f-58ba-4426-8405-66f5affae6e0', success rate: 1/1.
+[2026-06-13 07:56:49Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'b0a95b4f-58ba-4426-8405-66f5affae6e0', success rate: 1/1.
+[2026-06-13 07:56:50Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'b0a95b4f-58ba-4426-8405-66f5affae6e0', success rate: 1/1.
+[2026-06-13 07:56:51Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'b0a95b4f-58ba-4426-8405-66f5affae6e0', success rate: 1/1.
+[2026-06-13 07:56:52Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'b0a95b4f-58ba-4426-8405-66f5affae6e0', success rate: 1/1.
+[2026-06-13 07:56:53Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'b0a95b4f-58ba-4426-8405-66f5affae6e0', success rate: 1/1.
+[2026-06-13 07:56:54Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'b0a95b4f-58ba-4426-8405-66f5affae6e0', success rate: 1/1.
+[2026-06-13 07:56:55Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'b0a95b4f-58ba-4426-8405-66f5affae6e0', success rate: 1/1.
+[2026-06-13 07:56:56Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'b0a95b4f-58ba-4426-8405-66f5affae6e0', success rate: 1/1.
+[2026-06-13 07:56:56Z INFO HostContext] Well known directory 'Bin': 'D:\Docker\actions-runner\bin'
+[2026-06-13 07:56:56Z INFO HostContext] Well known directory 'Root': 'D:\Docker\actions-runner'
+[2026-06-13 07:56:56Z INFO HostContext] Well known directory 'Work': 'D:\Docker\actions-runner\_work'
+[2026-06-13 07:56:57Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'b0a95b4f-58ba-4426-8405-66f5affae6e0', success rate: 1/1.
+[2026-06-13 07:56:58Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'b0a95b4f-58ba-4426-8405-66f5affae6e0', success rate: 1/1.
+[2026-06-13 07:56:59Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'b0a95b4f-58ba-4426-8405-66f5affae6e0', success rate: 1/1.
+[2026-06-13 07:57:00Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'b0a95b4f-58ba-4426-8405-66f5affae6e0', success rate: 1/1.
+[2026-06-13 07:57:01Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'b0a95b4f-58ba-4426-8405-66f5affae6e0', success rate: 1/1.
+[2026-06-13 07:57:02Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'b0a95b4f-58ba-4426-8405-66f5affae6e0', success rate: 1/1.
+[2026-06-13 07:57:02Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'b0a95b4f-58ba-4426-8405-66f5affae6e0', success rate: 1/1.
+[2026-06-13 07:57:02Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'b0a95b4f-58ba-4426-8405-66f5affae6e0', success rate: 1/1.
+[2026-06-13 07:57:03Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'b0a95b4f-58ba-4426-8405-66f5affae6e0', success rate: 1/1.
+[2026-06-13 07:57:03Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'b0a95b4f-58ba-4426-8405-66f5affae6e0', success rate: 1/1.
+[2026-06-13 07:57:03Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'b0a95b4f-58ba-4426-8405-66f5affae6e0', success rate: 1/1.
+[2026-06-13 07:57:04Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'b0a95b4f-58ba-4426-8405-66f5affae6e0', success rate: 1/1.
+[2026-06-13 07:57:04Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'b0a95b4f-58ba-4426-8405-66f5affae6e0', success rate: 1/1.
+[2026-06-13 07:57:04Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'b0a95b4f-58ba-4426-8405-66f5affae6e0', success rate: 1/1.
+[2026-06-13 07:57:04Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'b0a95b4f-58ba-4426-8405-66f5affae6e0', success rate: 1/1.
+[2026-06-13 07:57:05Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'b0a95b4f-58ba-4426-8405-66f5affae6e0', success rate: 1/1.
+[2026-06-13 07:57:05Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'b0a95b4f-58ba-4426-8405-66f5affae6e0', success rate: 1/1.
+[2026-06-13 07:57:05Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'b0a95b4f-58ba-4426-8405-66f5affae6e0', success rate: 1/1.
+[2026-06-13 07:57:06Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'b0a95b4f-58ba-4426-8405-66f5affae6e0', success rate: 1/1.
+[2026-06-13 07:57:06Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'b0a95b4f-58ba-4426-8405-66f5affae6e0', success rate: 1/1.
+[2026-06-13 07:57:06Z INFO HostContext] Well known directory 'Bin': 'D:\Docker\actions-runner\bin'
+[2026-06-13 07:57:06Z INFO HostContext] Well known directory 'Root': 'D:\Docker\actions-runner'
+[2026-06-13 07:57:06Z INFO HostContext] Well known directory 'Work': 'D:\Docker\actions-runner\_work'
+[2026-06-13 07:57:06Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'b0a95b4f-58ba-4426-8405-66f5affae6e0', success rate: 1/1.
+[2026-06-13 07:57:07Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'b0a95b4f-58ba-4426-8405-66f5affae6e0', success rate: 1/1.
+[2026-06-13 07:57:07Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'b0a95b4f-58ba-4426-8405-66f5affae6e0', success rate: 1/1.
+[2026-06-13 07:57:07Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'b0a95b4f-58ba-4426-8405-66f5affae6e0', success rate: 1/1.
+[2026-06-13 07:57:07Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'b0a95b4f-58ba-4426-8405-66f5affae6e0', success rate: 1/1.
+[2026-06-13 07:57:08Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'b0a95b4f-58ba-4426-8405-66f5affae6e0', success rate: 1/1.
+[2026-06-13 07:57:09Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'b0a95b4f-58ba-4426-8405-66f5affae6e0', success rate: 1/1.
+[2026-06-13 07:57:10Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'b0a95b4f-58ba-4426-8405-66f5affae6e0', success rate: 1/1.
+[2026-06-13 07:57:11Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'b0a95b4f-58ba-4426-8405-66f5affae6e0', success rate: 1/1.
+[2026-06-13 07:57:11Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'b0a95b4f-58ba-4426-8405-66f5affae6e0', success rate: 1/1.
+[2026-06-13 07:57:12Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'b0a95b4f-58ba-4426-8405-66f5affae6e0', success rate: 1/1.
+[2026-06-13 07:57:12Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'b0a95b4f-58ba-4426-8405-66f5affae6e0', success rate: 1/1.
+[2026-06-13 07:57:12Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'b0a95b4f-58ba-4426-8405-66f5affae6e0', success rate: 1/1.
+[2026-06-13 07:57:13Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'b0a95b4f-58ba-4426-8405-66f5affae6e0', success rate: 1/1.
+[2026-06-13 07:57:13Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'b0a95b4f-58ba-4426-8405-66f5affae6e0', success rate: 1/1.
+[2026-06-13 07:57:14Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'b0a95b4f-58ba-4426-8405-66f5affae6e0', success rate: 1/1.
+[2026-06-13 07:57:14Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'b0a95b4f-58ba-4426-8405-66f5affae6e0', success rate: 1/1.
+[2026-06-13 07:57:15Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'b0a95b4f-58ba-4426-8405-66f5affae6e0', success rate: 1/1.
+[2026-06-13 07:57:15Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'b0a95b4f-58ba-4426-8405-66f5affae6e0', success rate: 1/1.
+[2026-06-13 07:57:15Z INFO JobServerQueue] Stop aggressive process web console line queue.
+[2026-06-13 07:57:16Z INFO HostContext] Well known directory 'Bin': 'D:\Docker\actions-runner\bin'
+[2026-06-13 07:57:16Z INFO HostContext] Well known directory 'Root': 'D:\Docker\actions-runner'
+[2026-06-13 07:57:16Z INFO HostContext] Well known directory 'Work': 'D:\Docker\actions-runner\_work'
+[2026-06-13 07:57:16Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'b0a95b4f-58ba-4426-8405-66f5affae6e0', success rate: 1/1.
+[2026-06-13 07:57:17Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'b0a95b4f-58ba-4426-8405-66f5affae6e0', success rate: 1/1.
+[2026-06-13 07:57:18Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'b0a95b4f-58ba-4426-8405-66f5affae6e0', success rate: 1/1.
+[2026-06-13 07:57:19Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'b0a95b4f-58ba-4426-8405-66f5affae6e0', success rate: 1/1.
+[2026-06-13 07:57:20Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'b0a95b4f-58ba-4426-8405-66f5affae6e0', success rate: 1/1.
+[2026-06-13 07:57:21Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'b0a95b4f-58ba-4426-8405-66f5affae6e0', success rate: 1/1.
+[2026-06-13 07:57:22Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'b0a95b4f-58ba-4426-8405-66f5affae6e0', success rate: 1/1.
+[2026-06-13 07:57:23Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'b0a95b4f-58ba-4426-8405-66f5affae6e0', success rate: 1/1.
+[2026-06-13 07:57:24Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'b0a95b4f-58ba-4426-8405-66f5affae6e0', success rate: 1/1.
+[2026-06-13 07:57:25Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'b0a95b4f-58ba-4426-8405-66f5affae6e0', success rate: 1/1.
+[2026-06-13 07:57:26Z INFO HostContext] Well known directory 'Bin': 'D:\Docker\actions-runner\bin'
+[2026-06-13 07:57:26Z INFO HostContext] Well known directory 'Root': 'D:\Docker\actions-runner'
+[2026-06-13 07:57:26Z INFO HostContext] Well known directory 'Work': 'D:\Docker\actions-runner\_work'
+[2026-06-13 07:57:26Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'b0a95b4f-58ba-4426-8405-66f5affae6e0', success rate: 1/1.
+[2026-06-13 07:57:28Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'b0a95b4f-58ba-4426-8405-66f5affae6e0', success rate: 1/1.
+[2026-06-13 07:57:29Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'b0a95b4f-58ba-4426-8405-66f5affae6e0', success rate: 1/1.
+[2026-06-13 07:57:30Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'b0a95b4f-58ba-4426-8405-66f5affae6e0', success rate: 1/1.
+[2026-06-13 07:57:31Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'b0a95b4f-58ba-4426-8405-66f5affae6e0', success rate: 1/1.
+[2026-06-13 07:57:32Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'b0a95b4f-58ba-4426-8405-66f5affae6e0', success rate: 1/1.
+[2026-06-13 07:57:32Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'b0a95b4f-58ba-4426-8405-66f5affae6e0', success rate: 1/1.
+[2026-06-13 07:57:34Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'b0a95b4f-58ba-4426-8405-66f5affae6e0', success rate: 1/1.
+[2026-06-13 07:57:36Z INFO HostContext] Well known directory 'Bin': 'D:\Docker\actions-runner\bin'
+[2026-06-13 07:57:36Z INFO HostContext] Well known directory 'Root': 'D:\Docker\actions-runner'
+[2026-06-13 07:57:36Z INFO HostContext] Well known directory 'Work': 'D:\Docker\actions-runner\_work'
+[2026-06-13 07:57:37Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'b0a95b4f-58ba-4426-8405-66f5affae6e0', success rate: 1/1.
+[2026-06-13 07:57:39Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'b0a95b4f-58ba-4426-8405-66f5affae6e0', success rate: 1/1.
+[2026-06-13 07:57:39Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'b0a95b4f-58ba-4426-8405-66f5affae6e0', success rate: 1/1.
+[2026-06-13 07:57:40Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'b0a95b4f-58ba-4426-8405-66f5affae6e0', success rate: 1/1.
+[2026-06-13 07:57:40Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'b0a95b4f-58ba-4426-8405-66f5affae6e0', success rate: 1/1.
+[2026-06-13 07:57:41Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'b0a95b4f-58ba-4426-8405-66f5affae6e0', success rate: 1/1.
+[2026-06-13 07:57:41Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'b0a95b4f-58ba-4426-8405-66f5affae6e0', success rate: 1/1.
+[2026-06-13 07:57:42Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'b0a95b4f-58ba-4426-8405-66f5affae6e0', success rate: 1/1.
+[2026-06-13 07:57:45Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'b0a95b4f-58ba-4426-8405-66f5affae6e0', success rate: 1/1.
+[2026-06-13 07:57:46Z INFO HostContext] Well known directory 'Bin': 'D:\Docker\actions-runner\bin'
+[2026-06-13 07:57:46Z INFO HostContext] Well known directory 'Root': 'D:\Docker\actions-runner'
+[2026-06-13 07:57:46Z INFO HostContext] Well known directory 'Work': 'D:\Docker\actions-runner\_work'
+[2026-06-13 07:57:46Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'b0a95b4f-58ba-4426-8405-66f5affae6e0', success rate: 1/1.
+[2026-06-13 07:57:46Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2026-06-13 07:57:46Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2026-06-13 07:57:46Z INFO ProcessInvokerWrapper] Finished process 12304 with exit code 0, and elapsed time 00:01:29.7600503.
+[2026-06-13 07:57:46Z INFO CreateStepSummaryCommand] Step Summary file (D:\Docker\actions-runner\_work\_temp\_runner_file_commands\step_summary_129a8ff1-15c5-4e6a-9e27-b6321b78817c) is empty; skipping attachment upload
+[2026-06-13 07:57:46Z INFO StepsRunner] Step result: 
+[2026-06-13 07:57:46Z INFO ExecutionContext] Publish step telemetry for current step {
+  "action": "actions/checkout",
+  "ref": "v3",
+  "type": "node20",
+  "stage": "Main",
+  "stepId": "b0a95b4f-58ba-4426-8405-66f5affae6e0",
+  "stepContextName": "__actions_checkout",
+  "hasPreStep": false,
+  "hasPostStep": true,
+  "result": "succeeded",
+  "errorMessages": [
+    "no submodule mapping found in .gitmodules for path 'actions-runner/_work/CI-CD-Project-using-Git-Action/CI-CD-Project-using-Git-Action'",
+    "Unable to clean or reset the repository. The repository will be recreated instead."
+  ],
+  "executionTimeInSeconds": 91,
+  "startTime": "2026-06-13T07:56:16.647375Z",
+  "finishTime": "2026-06-13T07:57:46.8432682Z"
+}.
+[2026-06-13 07:57:46Z INFO StepsRunner] No need for updating job result with current step result 'Succeeded'.
+[2026-06-13 07:57:46Z INFO StepsRunner] Current state: job state = ''
+[2026-06-13 07:57:46Z INFO StepsRunner] Processing step: DisplayName='Build Docker Image'
+[2026-06-13 07:57:46Z INFO StepsRunner] Evaluating: success()
+[2026-06-13 07:57:46Z INFO StepsRunner] Result: true
+[2026-06-13 07:57:46Z INFO StepsRunner] Starting the step.
+[2026-06-13 07:57:46Z INFO HostContext] Well known directory 'Bin': 'D:\Docker\actions-runner\bin'
+[2026-06-13 07:57:46Z INFO HostContext] Well known directory 'Root': 'D:\Docker\actions-runner'
+[2026-06-13 07:57:46Z INFO HostContext] Well known directory 'Work': 'D:\Docker\actions-runner\_work'
+[2026-06-13 07:57:46Z INFO StepsRunner] Which2: 'chcp'
+[2026-06-13 07:57:46Z INFO StepsRunner] Location: 'C:\Windows\system32\chcp.COM'
+[2026-06-13 07:57:46Z INFO ProcessInvokerWrapper] Starting process:
+[2026-06-13 07:57:46Z INFO ProcessInvokerWrapper]   File name: 'C:\Windows\system32\chcp.COM'
+[2026-06-13 07:57:46Z INFO ProcessInvokerWrapper]   Arguments: '65001'
+[2026-06-13 07:57:46Z INFO ProcessInvokerWrapper]   Working directory: 'D:\Docker\actions-runner\_work'
+[2026-06-13 07:57:46Z INFO ProcessInvokerWrapper]   Require exit code zero: 'False'
+[2026-06-13 07:57:46Z INFO ProcessInvokerWrapper]   Encoding web name:  ; code page: ''
+[2026-06-13 07:57:46Z INFO ProcessInvokerWrapper]   Force kill process on cancellation: 'False'
+[2026-06-13 07:57:46Z INFO ProcessInvokerWrapper]   Redirected STDIN: 'False'
+[2026-06-13 07:57:46Z INFO ProcessInvokerWrapper]   Persist current code page: 'True'
+[2026-06-13 07:57:46Z INFO ProcessInvokerWrapper]   Keep redirected STDIN open: 'False'
+[2026-06-13 07:57:46Z INFO ProcessInvokerWrapper]   High priority process: 'False'
+[2026-06-13 07:57:46Z INFO ProcessInvokerWrapper] Process started with process id 14328, waiting for process exit.
+[2026-06-13 07:57:46Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2026-06-13 07:57:46Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2026-06-13 07:57:46Z INFO ProcessInvokerWrapper] Finished process 14328 with exit code 0, and elapsed time 00:00:00.0315564.
+[2026-06-13 07:57:46Z INFO StepsRunner] Successfully returned to code page 65001 (UTF8)
+[2026-06-13 07:57:46Z INFO HostContext] Well known directory 'Bin': 'D:\Docker\actions-runner\bin'
+[2026-06-13 07:57:46Z INFO HostContext] Well known directory 'Root': 'D:\Docker\actions-runner'
+[2026-06-13 07:57:46Z INFO HostContext] Well known directory 'Work': 'D:\Docker\actions-runner\_work'
+[2026-06-13 07:57:46Z INFO HostContext] Well known directory 'Temp': 'D:\Docker\actions-runner\_work\_temp'
+[2026-06-13 07:57:46Z INFO ExecutionContext] Write event payload to D:\Docker\actions-runner\_work\_temp\_github_workflow\event.json
+[2026-06-13 07:57:46Z INFO HostContext] Well known directory 'Bin': 'D:\Docker\actions-runner\bin'
+[2026-06-13 07:57:46Z INFO HostContext] Well known directory 'Root': 'D:\Docker\actions-runner'
+[2026-06-13 07:57:46Z INFO HostContext] Well known directory 'Work': 'D:\Docker\actions-runner\_work'
+[2026-06-13 07:57:46Z INFO HostContext] Well known directory 'Temp': 'D:\Docker\actions-runner\_work\_temp'
+[2026-06-13 07:57:46Z INFO ExtensionManager] Getting extensions for interface: 'GitHub.Runner.Worker.IFileCommandExtension'
+[2026-06-13 07:57:46Z INFO ExtensionManager] Getting extensions for interface: 'GitHub.Runner.Worker.IActionCommandExtension'
+[2026-06-13 07:57:46Z INFO ActionCommandManager] Register action command extension for command internal-set-repo-path
+[2026-06-13 07:57:46Z INFO ActionCommandManager] Register action command extension for command set-env
+[2026-06-13 07:57:46Z INFO ActionCommandManager] Register action command extension for command set-output
+[2026-06-13 07:57:46Z INFO ActionCommandManager] Register action command extension for command save-state
+[2026-06-13 07:57:46Z INFO ActionCommandManager] Register action command extension for command add-path
+[2026-06-13 07:57:46Z INFO ActionCommandManager] Register action command extension for command add-mask
+[2026-06-13 07:57:46Z INFO ActionCommandManager] Register action command extension for command add-matcher
+[2026-06-13 07:57:46Z INFO ActionCommandManager] Register action command extension for command remove-matcher
+[2026-06-13 07:57:46Z INFO ActionCommandManager] Register action command extension for command warning
+[2026-06-13 07:57:46Z INFO ActionCommandManager] Register action command extension for command error
+[2026-06-13 07:57:46Z INFO ActionCommandManager] Register action command extension for command notice
+[2026-06-13 07:57:46Z INFO ActionCommandManager] Register action command extension for command debug
+[2026-06-13 07:57:46Z INFO ActionCommandManager] Register action command extension for command group
+[2026-06-13 07:57:46Z INFO ActionCommandManager] Register action command extension for command endgroup
+[2026-06-13 07:57:46Z INFO ActionCommandManager] Register action command extension for command echo
+[2026-06-13 07:57:46Z INFO ScriptHandler] Which2: 'pwsh'
+[2026-06-13 07:57:46Z INFO ScriptHandler] pwsh: command not found. Make sure 'pwsh' is installed and its location included in the 'Path' environment variable.
+[2026-06-13 07:57:46Z INFO ScriptHandler] Defaulting to powershell
+[2026-06-13 07:57:46Z INFO ScriptHandler] Which2: 'powershell'
+[2026-06-13 07:57:46Z INFO ScriptHandler] Location: 'C:\Windows\System32\WindowsPowerShell\v1.0\powershell.EXE'
+[2026-06-13 07:57:46Z INFO HostContext] Well known directory 'Bin': 'D:\Docker\actions-runner\bin'
+[2026-06-13 07:57:46Z INFO HostContext] Well known directory 'Root': 'D:\Docker\actions-runner'
+[2026-06-13 07:57:46Z INFO HostContext] Well known directory 'Work': 'D:\Docker\actions-runner\_work'
+[2026-06-13 07:57:46Z INFO HostContext] Well known directory 'Temp': 'D:\Docker\actions-runner\_work\_temp'
+[2026-06-13 07:57:46Z INFO ScriptHandler] Which2: 'pwsh'
+[2026-06-13 07:57:46Z INFO ScriptHandler] pwsh: command not found. Make sure 'pwsh' is installed and its location included in the 'Path' environment variable.
+[2026-06-13 07:57:46Z INFO ScriptHandler] Defaulting to powershell
+[2026-06-13 07:57:46Z INFO ScriptHandler] Which2: 'powershell'
+[2026-06-13 07:57:46Z INFO ScriptHandler] Location: 'C:\Windows\System32\WindowsPowerShell\v1.0\powershell.EXE'
+[2026-06-13 07:57:46Z INFO ProcessInvokerWrapper] Starting process:
+[2026-06-13 07:57:47Z INFO ProcessInvokerWrapper]   File name: 'C:\Windows\System32\WindowsPowerShell\v1.0\powershell.EXE'
+[2026-06-13 07:57:47Z INFO ProcessInvokerWrapper]   Arguments: '-command ". 'D:\Docker\actions-runner\_work\_temp\24349181-ede9-4a8a-afaa-749e267b44c4.ps1'"'
+[2026-06-13 07:57:47Z INFO ProcessInvokerWrapper]   Working directory: 'D:\Docker\actions-runner\_work\CI-CD-Project-using-Git-Action\CI-CD-Project-using-Git-Action'
+[2026-06-13 07:57:47Z INFO ProcessInvokerWrapper]   Require exit code zero: 'False'
+[2026-06-13 07:57:47Z INFO ProcessInvokerWrapper]   Encoding web name:  ; code page: ''
+[2026-06-13 07:57:47Z INFO ProcessInvokerWrapper]   Force kill process on cancellation: 'False'
+[2026-06-13 07:57:47Z INFO ProcessInvokerWrapper]   Redirected STDIN: 'False'
+[2026-06-13 07:57:47Z INFO ProcessInvokerWrapper]   Persist current code page: 'True'
+[2026-06-13 07:57:47Z INFO ProcessInvokerWrapper]   Keep redirected STDIN open: 'False'
+[2026-06-13 07:57:47Z INFO ProcessInvokerWrapper]   High priority process: 'False'
+[2026-06-13 07:57:47Z INFO ProcessInvokerWrapper] Process started with process id 16312, waiting for process exit.
+[2026-06-13 07:57:47Z INFO JobServerQueue] Try to upload 1 log files or attachments, success rate: 1/1.
+[2026-06-13 07:57:47Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'b0a95b4f-58ba-4426-8405-66f5affae6e0', success rate: 1/1.
+[2026-06-13 07:57:47Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'a3777147-746c-42d7-9a08-2339808a9f9a', success rate: 1/1.
+[2026-06-13 07:57:47Z INFO JobServerQueue] Got a step log file to send to results service.
+[2026-06-13 07:57:47Z INFO JobServerQueue] Starting upload of step log file to results service ResultsLog, D:\Docker\actions-runner\_diag\blocks\a5fd09c1-9c5e-4f0d-b255-cfd8732d5a5b_b0a95b4f-58ba-4426-8405-66f5affae6e0.1
+[2026-06-13 07:57:50Z INFO JobServerQueue] Tried to upload 1 file(s) to results, success rate: 1/1.
+[2026-06-13 07:57:50Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'a3777147-746c-42d7-9a08-2339808a9f9a', success rate: 1/1.
+[2026-06-13 07:57:52Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'a3777147-746c-42d7-9a08-2339808a9f9a', success rate: 1/1.
+[2026-06-13 07:57:53Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'a3777147-746c-42d7-9a08-2339808a9f9a', success rate: 1/1.
+[2026-06-13 07:57:56Z INFO HostContext] Well known directory 'Bin': 'D:\Docker\actions-runner\bin'
+[2026-06-13 07:57:56Z INFO HostContext] Well known directory 'Root': 'D:\Docker\actions-runner'
+[2026-06-13 07:57:56Z INFO HostContext] Well known directory 'Work': 'D:\Docker\actions-runner\_work'
+[2026-06-13 07:57:57Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'a3777147-746c-42d7-9a08-2339808a9f9a', success rate: 1/1.
+[2026-06-13 07:58:03Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'a3777147-746c-42d7-9a08-2339808a9f9a', success rate: 1/1.
+[2026-06-13 07:58:06Z INFO HostContext] Well known directory 'Bin': 'D:\Docker\actions-runner\bin'
+[2026-06-13 07:58:06Z INFO HostContext] Well known directory 'Root': 'D:\Docker\actions-runner'
+[2026-06-13 07:58:06Z INFO HostContext] Well known directory 'Work': 'D:\Docker\actions-runner\_work'
+[2026-06-13 07:58:08Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'a3777147-746c-42d7-9a08-2339808a9f9a', success rate: 1/1.
+[2026-06-13 07:58:13Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'a3777147-746c-42d7-9a08-2339808a9f9a', success rate: 1/1.
+[2026-06-13 07:58:16Z INFO HostContext] Well known directory 'Bin': 'D:\Docker\actions-runner\bin'
+[2026-06-13 07:58:16Z INFO HostContext] Well known directory 'Root': 'D:\Docker\actions-runner'
+[2026-06-13 07:58:16Z INFO HostContext] Well known directory 'Work': 'D:\Docker\actions-runner\_work'
+[2026-06-13 07:58:18Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'a3777147-746c-42d7-9a08-2339808a9f9a', success rate: 1/1.
+[2026-06-13 07:58:23Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'a3777147-746c-42d7-9a08-2339808a9f9a', success rate: 1/1.
+[2026-06-13 07:58:26Z INFO HostContext] Well known directory 'Bin': 'D:\Docker\actions-runner\bin'
+[2026-06-13 07:58:26Z INFO HostContext] Well known directory 'Root': 'D:\Docker\actions-runner'
+[2026-06-13 07:58:26Z INFO HostContext] Well known directory 'Work': 'D:\Docker\actions-runner\_work'
+[2026-06-13 07:58:28Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'a3777147-746c-42d7-9a08-2339808a9f9a', success rate: 1/1.
+[2026-06-13 07:58:34Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'a3777147-746c-42d7-9a08-2339808a9f9a', success rate: 1/1.
+[2026-06-13 07:58:36Z INFO HostContext] Well known directory 'Bin': 'D:\Docker\actions-runner\bin'
+[2026-06-13 07:58:36Z INFO HostContext] Well known directory 'Root': 'D:\Docker\actions-runner'
+[2026-06-13 07:58:36Z INFO HostContext] Well known directory 'Work': 'D:\Docker\actions-runner\_work'
+[2026-06-13 07:58:39Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'a3777147-746c-42d7-9a08-2339808a9f9a', success rate: 1/1.
+[2026-06-13 07:58:44Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'a3777147-746c-42d7-9a08-2339808a9f9a', success rate: 1/1.
+[2026-06-13 07:58:46Z INFO HostContext] Well known directory 'Bin': 'D:\Docker\actions-runner\bin'
+[2026-06-13 07:58:46Z INFO HostContext] Well known directory 'Root': 'D:\Docker\actions-runner'
+[2026-06-13 07:58:46Z INFO HostContext] Well known directory 'Work': 'D:\Docker\actions-runner\_work'
+[2026-06-13 07:58:49Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'a3777147-746c-42d7-9a08-2339808a9f9a', success rate: 1/1.
+[2026-06-13 07:58:49Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'a3777147-746c-42d7-9a08-2339808a9f9a', success rate: 1/1.
+[2026-06-13 07:58:51Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'a3777147-746c-42d7-9a08-2339808a9f9a', success rate: 1/1.
+[2026-06-13 07:58:56Z INFO HostContext] Well known directory 'Bin': 'D:\Docker\actions-runner\bin'
+[2026-06-13 07:58:56Z INFO HostContext] Well known directory 'Root': 'D:\Docker\actions-runner'
+[2026-06-13 07:58:56Z INFO HostContext] Well known directory 'Work': 'D:\Docker\actions-runner\_work'
+[2026-06-13 07:59:06Z INFO HostContext] Well known directory 'Bin': 'D:\Docker\actions-runner\bin'
+[2026-06-13 07:59:06Z INFO HostContext] Well known directory 'Root': 'D:\Docker\actions-runner'
+[2026-06-13 07:59:06Z INFO HostContext] Well known directory 'Work': 'D:\Docker\actions-runner\_work'
+[2026-06-13 07:59:16Z INFO HostContext] Well known directory 'Bin': 'D:\Docker\actions-runner\bin'
+[2026-06-13 07:59:16Z INFO HostContext] Well known directory 'Root': 'D:\Docker\actions-runner'
+[2026-06-13 07:59:16Z INFO HostContext] Well known directory 'Work': 'D:\Docker\actions-runner\_work'
+[2026-06-13 07:59:26Z INFO HostContext] Well known directory 'Bin': 'D:\Docker\actions-runner\bin'
+[2026-06-13 07:59:26Z INFO HostContext] Well known directory 'Root': 'D:\Docker\actions-runner'
+[2026-06-13 07:59:26Z INFO HostContext] Well known directory 'Work': 'D:\Docker\actions-runner\_work'
+[2026-06-13 07:59:31Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'a3777147-746c-42d7-9a08-2339808a9f9a', success rate: 1/1.
+[2026-06-13 07:59:32Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'a3777147-746c-42d7-9a08-2339808a9f9a', success rate: 1/1.
+[2026-06-13 07:59:36Z INFO HostContext] Well known directory 'Bin': 'D:\Docker\actions-runner\bin'
+[2026-06-13 07:59:36Z INFO HostContext] Well known directory 'Root': 'D:\Docker\actions-runner'
+[2026-06-13 07:59:36Z INFO HostContext] Well known directory 'Work': 'D:\Docker\actions-runner\_work'
+[2026-06-13 07:59:39Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'a3777147-746c-42d7-9a08-2339808a9f9a', success rate: 1/1.
+[2026-06-13 07:59:41Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2026-06-13 07:59:41Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2026-06-13 07:59:41Z INFO ProcessInvokerWrapper] Finished process 16312 with exit code 0, and elapsed time 00:01:54.6926409.
+[2026-06-13 07:59:41Z INFO CreateStepSummaryCommand] Step Summary file (D:\Docker\actions-runner\_work\_temp\_runner_file_commands\step_summary_642a0442-b2e4-4629-9ff6-b88be75fc072) is empty; skipping attachment upload
+[2026-06-13 07:59:41Z INFO StepsRunner] Step result: 
+[2026-06-13 07:59:41Z INFO ExecutionContext] Publish step telemetry for current step {
+  "action": "powershell",
+  "type": "run",
+  "stage": "Main",
+  "stepId": "a3777147-746c-42d7-9a08-2339808a9f9a",
+  "stepContextName": "__run",
+  "result": "succeeded",
+  "errorMessages": [],
+  "executionTimeInSeconds": 115,
+  "startTime": "2026-06-13T07:57:46.8528359Z",
+  "finishTime": "2026-06-13T07:59:41.6981387Z"
+}.
+[2026-06-13 07:59:41Z INFO StepsRunner] No need for updating job result with current step result 'Succeeded'.
+[2026-06-13 07:59:41Z INFO StepsRunner] Current state: job state = ''
+[2026-06-13 07:59:41Z INFO StepsRunner] Processing step: DisplayName='Stop old container'
+[2026-06-13 07:59:41Z INFO StepsRunner] Evaluating: success()
+[2026-06-13 07:59:41Z INFO StepsRunner] Result: true
+[2026-06-13 07:59:41Z INFO StepsRunner] Starting the step.
+[2026-06-13 07:59:41Z INFO HostContext] Well known directory 'Bin': 'D:\Docker\actions-runner\bin'
+[2026-06-13 07:59:41Z INFO HostContext] Well known directory 'Root': 'D:\Docker\actions-runner'
+[2026-06-13 07:59:41Z INFO HostContext] Well known directory 'Work': 'D:\Docker\actions-runner\_work'
+[2026-06-13 07:59:41Z INFO StepsRunner] Which2: 'chcp'
+[2026-06-13 07:59:41Z INFO StepsRunner] Location: 'C:\Windows\system32\chcp.COM'
+[2026-06-13 07:59:41Z INFO ProcessInvokerWrapper] Starting process:
+[2026-06-13 07:59:41Z INFO ProcessInvokerWrapper]   File name: 'C:\Windows\system32\chcp.COM'
+[2026-06-13 07:59:41Z INFO ProcessInvokerWrapper]   Arguments: '65001'
+[2026-06-13 07:59:41Z INFO ProcessInvokerWrapper]   Working directory: 'D:\Docker\actions-runner\_work'
+[2026-06-13 07:59:41Z INFO ProcessInvokerWrapper]   Require exit code zero: 'False'
+[2026-06-13 07:59:41Z INFO ProcessInvokerWrapper]   Encoding web name:  ; code page: ''
+[2026-06-13 07:59:41Z INFO ProcessInvokerWrapper]   Force kill process on cancellation: 'False'
+[2026-06-13 07:59:41Z INFO ProcessInvokerWrapper]   Redirected STDIN: 'False'
+[2026-06-13 07:59:41Z INFO ProcessInvokerWrapper]   Persist current code page: 'True'
+[2026-06-13 07:59:41Z INFO ProcessInvokerWrapper]   Keep redirected STDIN open: 'False'
+[2026-06-13 07:59:41Z INFO ProcessInvokerWrapper]   High priority process: 'False'
+[2026-06-13 07:59:41Z INFO ProcessInvokerWrapper] Process started with process id 9732, waiting for process exit.
+[2026-06-13 07:59:41Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2026-06-13 07:59:41Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2026-06-13 07:59:41Z INFO ProcessInvokerWrapper] Finished process 9732 with exit code 0, and elapsed time 00:00:00.0532613.
+[2026-06-13 07:59:41Z INFO StepsRunner] Successfully returned to code page 65001 (UTF8)
+[2026-06-13 07:59:41Z INFO HostContext] Well known directory 'Bin': 'D:\Docker\actions-runner\bin'
+[2026-06-13 07:59:41Z INFO HostContext] Well known directory 'Root': 'D:\Docker\actions-runner'
+[2026-06-13 07:59:41Z INFO HostContext] Well known directory 'Work': 'D:\Docker\actions-runner\_work'
+[2026-06-13 07:59:41Z INFO HostContext] Well known directory 'Temp': 'D:\Docker\actions-runner\_work\_temp'
+[2026-06-13 07:59:41Z INFO ExecutionContext] Write event payload to D:\Docker\actions-runner\_work\_temp\_github_workflow\event.json
+[2026-06-13 07:59:41Z INFO HostContext] Well known directory 'Bin': 'D:\Docker\actions-runner\bin'
+[2026-06-13 07:59:41Z INFO HostContext] Well known directory 'Root': 'D:\Docker\actions-runner'
+[2026-06-13 07:59:41Z INFO HostContext] Well known directory 'Work': 'D:\Docker\actions-runner\_work'
+[2026-06-13 07:59:41Z INFO HostContext] Well known directory 'Temp': 'D:\Docker\actions-runner\_work\_temp'
+[2026-06-13 07:59:41Z INFO ExtensionManager] Getting extensions for interface: 'GitHub.Runner.Worker.IFileCommandExtension'
+[2026-06-13 07:59:41Z INFO ExtensionManager] Getting extensions for interface: 'GitHub.Runner.Worker.IActionCommandExtension'
+[2026-06-13 07:59:41Z INFO ActionCommandManager] Register action command extension for command internal-set-repo-path
+[2026-06-13 07:59:41Z INFO ActionCommandManager] Register action command extension for command set-env
+[2026-06-13 07:59:41Z INFO ActionCommandManager] Register action command extension for command set-output
+[2026-06-13 07:59:41Z INFO ActionCommandManager] Register action command extension for command save-state
+[2026-06-13 07:59:41Z INFO ActionCommandManager] Register action command extension for command add-path
+[2026-06-13 07:59:41Z INFO ActionCommandManager] Register action command extension for command add-mask
+[2026-06-13 07:59:41Z INFO ActionCommandManager] Register action command extension for command add-matcher
+[2026-06-13 07:59:41Z INFO ActionCommandManager] Register action command extension for command remove-matcher
+[2026-06-13 07:59:41Z INFO ActionCommandManager] Register action command extension for command warning
+[2026-06-13 07:59:41Z INFO ActionCommandManager] Register action command extension for command error
+[2026-06-13 07:59:41Z INFO ActionCommandManager] Register action command extension for command notice
+[2026-06-13 07:59:41Z INFO ActionCommandManager] Register action command extension for command debug
+[2026-06-13 07:59:41Z INFO ActionCommandManager] Register action command extension for command group
+[2026-06-13 07:59:41Z INFO ActionCommandManager] Register action command extension for command endgroup
+[2026-06-13 07:59:41Z INFO ActionCommandManager] Register action command extension for command echo
+[2026-06-13 07:59:41Z INFO ScriptHandler] Which2: 'pwsh'
+[2026-06-13 07:59:41Z INFO ScriptHandler] pwsh: command not found. Make sure 'pwsh' is installed and its location included in the 'Path' environment variable.
+[2026-06-13 07:59:41Z INFO ScriptHandler] Defaulting to powershell
+[2026-06-13 07:59:41Z INFO ScriptHandler] Which2: 'powershell'
+[2026-06-13 07:59:41Z INFO ScriptHandler] Location: 'C:\Windows\System32\WindowsPowerShell\v1.0\powershell.EXE'
+[2026-06-13 07:59:41Z INFO HostContext] Well known directory 'Bin': 'D:\Docker\actions-runner\bin'
+[2026-06-13 07:59:41Z INFO HostContext] Well known directory 'Root': 'D:\Docker\actions-runner'
+[2026-06-13 07:59:41Z INFO HostContext] Well known directory 'Work': 'D:\Docker\actions-runner\_work'
+[2026-06-13 07:59:41Z INFO HostContext] Well known directory 'Temp': 'D:\Docker\actions-runner\_work\_temp'
+[2026-06-13 07:59:41Z INFO ScriptHandler] Which2: 'pwsh'
+[2026-06-13 07:59:41Z INFO ScriptHandler] pwsh: command not found. Make sure 'pwsh' is installed and its location included in the 'Path' environment variable.
+[2026-06-13 07:59:41Z INFO ScriptHandler] Defaulting to powershell
+[2026-06-13 07:59:41Z INFO ScriptHandler] Which2: 'powershell'
+[2026-06-13 07:59:41Z INFO ScriptHandler] Location: 'C:\Windows\System32\WindowsPowerShell\v1.0\powershell.EXE'
+[2026-06-13 07:59:41Z INFO ProcessInvokerWrapper] Starting process:
+[2026-06-13 07:59:41Z INFO ProcessInvokerWrapper]   File name: 'C:\Windows\System32\WindowsPowerShell\v1.0\powershell.EXE'
+[2026-06-13 07:59:41Z INFO ProcessInvokerWrapper]   Arguments: '-command ". 'D:\Docker\actions-runner\_work\_temp\a8774983-4081-4dcd-a0e8-46ce175282a3.ps1'"'
+[2026-06-13 07:59:41Z INFO ProcessInvokerWrapper]   Working directory: 'D:\Docker\actions-runner\_work\CI-CD-Project-using-Git-Action\CI-CD-Project-using-Git-Action'
+[2026-06-13 07:59:41Z INFO ProcessInvokerWrapper]   Require exit code zero: 'False'
+[2026-06-13 07:59:41Z INFO ProcessInvokerWrapper]   Encoding web name:  ; code page: ''
+[2026-06-13 07:59:41Z INFO ProcessInvokerWrapper]   Force kill process on cancellation: 'False'
+[2026-06-13 07:59:41Z INFO ProcessInvokerWrapper]   Redirected STDIN: 'False'
+[2026-06-13 07:59:41Z INFO ProcessInvokerWrapper]   Persist current code page: 'True'
+[2026-06-13 07:59:41Z INFO ProcessInvokerWrapper]   Keep redirected STDIN open: 'False'
+[2026-06-13 07:59:41Z INFO ProcessInvokerWrapper]   High priority process: 'False'
+[2026-06-13 07:59:41Z INFO ProcessInvokerWrapper] Process started with process id 17668, waiting for process exit.
+[2026-06-13 07:59:41Z INFO JobServerQueue] Got a step log file to send to results service.
+[2026-06-13 07:59:41Z INFO JobServerQueue] Starting upload of step log file to results service ResultsLog, D:\Docker\actions-runner\_diag\blocks\a5fd09c1-9c5e-4f0d-b255-cfd8732d5a5b_a3777147-746c-42d7-9a08-2339808a9f9a.1
+[2026-06-13 07:59:41Z INFO JobServerQueue] Try to upload 1 log files or attachments, success rate: 1/1.
+[2026-06-13 07:59:42Z INFO JobServerQueue] Try to append 1 batches web console lines for record '16e55059-a100-44b6-8146-22ac49740f87', success rate: 1/1.
+[2026-06-13 07:59:44Z INFO JobServerQueue] Tried to upload 1 file(s) to results, success rate: 1/1.
+[2026-06-13 07:59:45Z INFO JobServerQueue] Try to append 1 batches web console lines for record '16e55059-a100-44b6-8146-22ac49740f87', success rate: 1/1.
+[2026-06-13 07:59:45Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2026-06-13 07:59:45Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2026-06-13 07:59:45Z INFO ProcessInvokerWrapper] Finished process 17668 with exit code 1, and elapsed time 00:00:04.1472397.
+[2026-06-13 07:59:45Z INFO CreateStepSummaryCommand] Step Summary file (D:\Docker\actions-runner\_work\_temp\_runner_file_commands\step_summary_3a68e513-04ee-498e-95d4-ea090f6cf4ed) is empty; skipping attachment upload
+[2026-06-13 07:59:45Z INFO StepsRunner] Step result: Failed
+[2026-06-13 07:59:45Z INFO ExecutionContext] Publish step telemetry for current step {
+  "action": "powershell",
+  "type": "run",
+  "stage": "Main",
+  "stepId": "16e55059-a100-44b6-8146-22ac49740f87",
+  "stepContextName": "__run_2",
+  "result": "failed",
+  "errorMessages": [
+    "Process completed with exit code 1."
+  ],
+  "executionTimeInSeconds": 5,
+  "startTime": "2026-06-13T07:59:41.7022253Z",
+  "finishTime": "2026-06-13T07:59:45.9920676Z"
+}.
+[2026-06-13 07:59:45Z INFO StepsRunner] Update job result with current step result 'Failed'.
+[2026-06-13 07:59:45Z INFO StepsRunner] Current state: job state = 'Failed'
+[2026-06-13 07:59:45Z INFO StepsRunner] Processing step: DisplayName='Remove old container'
+[2026-06-13 07:59:45Z INFO StepsRunner] Evaluating: success()
+[2026-06-13 07:59:45Z INFO StepsRunner] Result: false
+[2026-06-13 07:59:45Z INFO StepsRunner] Skipping step due to condition evaluation.
+[2026-06-13 07:59:45Z INFO StepsRunner] No need for updating job result with current step result 'Skipped'.
+[2026-06-13 07:59:45Z INFO StepsRunner] Current state: job state = 'Failed'
+[2026-06-13 07:59:45Z INFO StepsRunner] Processing step: DisplayName='Run container'
+[2026-06-13 07:59:46Z INFO StepsRunner] Evaluating: success()
+[2026-06-13 07:59:46Z INFO StepsRunner] Result: false
+[2026-06-13 07:59:46Z INFO StepsRunner] Skipping step due to condition evaluation.
+[2026-06-13 07:59:46Z INFO StepsRunner] No need for updating job result with current step result 'Skipped'.
+[2026-06-13 07:59:46Z INFO StepsRunner] Current state: job state = 'Failed'
+[2026-06-13 07:59:46Z INFO StepsRunner] Processing step: DisplayName='Post Checkout code'
+[2026-06-13 07:59:46Z INFO StepsRunner] Evaluating: always()
+[2026-06-13 07:59:46Z INFO StepsRunner] Result: true
+[2026-06-13 07:59:46Z INFO StepsRunner] Starting the step.
+[2026-06-13 07:59:46Z INFO HostContext] Well known directory 'Bin': 'D:\Docker\actions-runner\bin'
+[2026-06-13 07:59:46Z INFO HostContext] Well known directory 'Root': 'D:\Docker\actions-runner'
+[2026-06-13 07:59:46Z INFO HostContext] Well known directory 'Work': 'D:\Docker\actions-runner\_work'
+[2026-06-13 07:59:46Z INFO StepsRunner] Which2: 'chcp'
+[2026-06-13 07:59:46Z INFO StepsRunner] Location: 'C:\Windows\system32\chcp.COM'
+[2026-06-13 07:59:46Z INFO ProcessInvokerWrapper] Starting process:
+[2026-06-13 07:59:46Z INFO ProcessInvokerWrapper]   File name: 'C:\Windows\system32\chcp.COM'
+[2026-06-13 07:59:46Z INFO ProcessInvokerWrapper]   Arguments: '65001'
+[2026-06-13 07:59:46Z INFO ProcessInvokerWrapper]   Working directory: 'D:\Docker\actions-runner\_work'
+[2026-06-13 07:59:46Z INFO ProcessInvokerWrapper]   Require exit code zero: 'False'
+[2026-06-13 07:59:46Z INFO ProcessInvokerWrapper]   Encoding web name:  ; code page: ''
+[2026-06-13 07:59:46Z INFO ProcessInvokerWrapper]   Force kill process on cancellation: 'False'
+[2026-06-13 07:59:46Z INFO ProcessInvokerWrapper]   Redirected STDIN: 'False'
+[2026-06-13 07:59:46Z INFO ProcessInvokerWrapper]   Persist current code page: 'True'
+[2026-06-13 07:59:46Z INFO ProcessInvokerWrapper]   Keep redirected STDIN open: 'False'
+[2026-06-13 07:59:46Z INFO ProcessInvokerWrapper]   High priority process: 'False'
+[2026-06-13 07:59:46Z INFO ProcessInvokerWrapper] Process started with process id 20424, waiting for process exit.
+[2026-06-13 07:59:46Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2026-06-13 07:59:46Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2026-06-13 07:59:46Z INFO ProcessInvokerWrapper] Finished process 20424 with exit code 0, and elapsed time 00:00:00.0369752.
+[2026-06-13 07:59:46Z INFO StepsRunner] Successfully returned to code page 65001 (UTF8)
+[2026-06-13 07:59:46Z INFO HostContext] Well known directory 'Bin': 'D:\Docker\actions-runner\bin'
+[2026-06-13 07:59:46Z INFO HostContext] Well known directory 'Root': 'D:\Docker\actions-runner'
+[2026-06-13 07:59:46Z INFO HostContext] Well known directory 'Work': 'D:\Docker\actions-runner\_work'
+[2026-06-13 07:59:46Z INFO HostContext] Well known directory 'Actions': 'D:\Docker\actions-runner\_work\_actions'
+[2026-06-13 07:59:46Z INFO ActionManager] Load action that reference repository from 'D:\Docker\actions-runner\_work\_actions\actions\checkout\v3'
+[2026-06-13 07:59:46Z INFO HostContext] Well known directory 'Bin': 'D:\Docker\actions-runner\bin'
+[2026-06-13 07:59:46Z INFO HostContext] Well known directory 'Root': 'D:\Docker\actions-runner'
+[2026-06-13 07:59:46Z INFO HostContext] Well known directory 'Work': 'D:\Docker\actions-runner\_work'
+[2026-06-13 07:59:46Z INFO HostContext] Well known directory 'Actions': 'D:\Docker\actions-runner\_work\_actions'
+[2026-06-13 07:59:46Z INFO ActionManifestManagerLegacy] Loaded action.yml file: {
+  "name": "Checkout",
+  "description": "Checkout a Git repository at a particular version",
+  "inputs": {
+    "type": 2,
+    "map": [
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 4,
+          "col": 3,
+          "lit": "repository"
+        },
+        "value": {
+          "type": 3,
+          "file": 2,
+          "line": 6,
+          "col": 14,
+          "expr": "github.repository"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 7,
+          "col": 3,
+          "lit": "ref"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 12,
+          "col": 3,
+          "lit": "token"
+        },
+        "value": {
+          "type": 3,
+          "file": 2,
+          "line": 24,
+          "col": 14,
+          "expr": "github.token"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 25,
+          "col": 3,
+          "lit": "ssh-key"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 37,
+          "col": 3,
+          "lit": "ssh-known-hosts"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 42,
+          "col": 3,
+          "lit": "ssh-strict"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 47,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 48,
+          "col": 3,
+          "lit": "persist-credentials"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 50,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 51,
+          "col": 3,
+          "lit": "path"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 53,
+          "col": 3,
+          "lit": "clean"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 55,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 56,
+          "col": 3,
+          "lit": "sparse-checkout"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 60,
+          "col": 14,
+          "lit": ""
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 61,
+          "col": 3,
+          "lit": "sparse-checkout-cone-mode"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 64,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 65,
+          "col": 3,
+          "lit": "fetch-depth"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 67,
+          "col": 14,
+          "lit": "1"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 68,
+          "col": 3,
+          "lit": "fetch-tags"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 70,
+          "col": 14,
+          "lit": "false"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 71,
+          "col": 3,
+          "lit": "lfs"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 73,
+          "col": 14,
+          "lit": "false"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 74,
+          "col": 3,
+          "lit": "submodules"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 82,
+          "col": 14,
+          "lit": "false"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 83,
+          "col": 3,
+          "lit": "set-safe-directory"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 85,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 86,
+          "col": 3,
+          "lit": "github-server-url"
+        },
+        "value": ""
+      }
+    ]
+  },
+  "execution": {
+    "executionType": "nodeJS",
+    "hasPre": false,
+    "hasPost": true,
+    "script": "dist/index.js",
+    "pre": null,
+    "post": "dist/index.js",
+    "nodeVersion": "node16",
+    "cleanupCondition": "always()",
+    "initCondition": "always()"
+  },
+  "deprecated": null
+}
+[2026-06-13 07:59:46Z INFO ActionManager] Action pre node.js file: N/A.
+[2026-06-13 07:59:46Z INFO ActionManager] Action node.js file: dist/index.js.
+[2026-06-13 07:59:46Z INFO ActionManager] Action post node.js file: dist/index.js.
+[2026-06-13 07:59:46Z INFO HostContext] Well known directory 'Bin': 'D:\Docker\actions-runner\bin'
+[2026-06-13 07:59:46Z INFO HostContext] Well known directory 'Root': 'D:\Docker\actions-runner'
+[2026-06-13 07:59:46Z INFO HostContext] Well known directory 'Work': 'D:\Docker\actions-runner\_work'
+[2026-06-13 07:59:46Z INFO HostContext] Well known directory 'Temp': 'D:\Docker\actions-runner\_work\_temp'
+[2026-06-13 07:59:46Z INFO ExecutionContext] Write event payload to D:\Docker\actions-runner\_work\_temp\_github_workflow\event.json
+[2026-06-13 07:59:46Z INFO HostContext] Well known directory 'Bin': 'D:\Docker\actions-runner\bin'
+[2026-06-13 07:59:46Z INFO HostContext] Well known directory 'Root': 'D:\Docker\actions-runner'
+[2026-06-13 07:59:46Z INFO HostContext] Well known directory 'Work': 'D:\Docker\actions-runner\_work'
+[2026-06-13 07:59:46Z INFO HostContext] Well known directory 'Temp': 'D:\Docker\actions-runner\_work\_temp'
+[2026-06-13 07:59:46Z INFO ExtensionManager] Getting extensions for interface: 'GitHub.Runner.Worker.IFileCommandExtension'
+[2026-06-13 07:59:46Z INFO ActionManifestManagerLegacy] Input 'repository': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 6,
+  "col": 14,
+  "lit": "BharathMalayalam/CI-CD-Project-using-Git-Action"
+}
+[2026-06-13 07:59:46Z INFO ActionManifestManagerLegacy] Input 'ref': default value evaluate result: ""
+[2026-06-13 07:59:46Z INFO ActionManifestManagerLegacy] Input 'token': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 24,
+  "col": 14,
+  "lit": "***"
+}
+[2026-06-13 07:59:46Z INFO ActionManifestManagerLegacy] Input 'ssh-key': default value evaluate result: ""
+[2026-06-13 07:59:46Z INFO ActionManifestManagerLegacy] Input 'ssh-known-hosts': default value evaluate result: ""
+[2026-06-13 07:59:46Z INFO ActionManifestManagerLegacy] Input 'ssh-strict': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 47,
+  "col": 14,
+  "lit": "true"
+}
+[2026-06-13 07:59:46Z INFO ActionManifestManagerLegacy] Input 'persist-credentials': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 50,
+  "col": 14,
+  "lit": "true"
+}
+[2026-06-13 07:59:46Z INFO ActionManifestManagerLegacy] Input 'path': default value evaluate result: ""
+[2026-06-13 07:59:46Z INFO ActionManifestManagerLegacy] Input 'clean': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 55,
+  "col": 14,
+  "lit": "true"
+}
+[2026-06-13 07:59:46Z INFO ActionManifestManagerLegacy] Input 'sparse-checkout': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 60,
+  "col": 14,
+  "lit": ""
+}
+[2026-06-13 07:59:46Z INFO ActionManifestManagerLegacy] Input 'sparse-checkout-cone-mode': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 64,
+  "col": 14,
+  "lit": "true"
+}
+[2026-06-13 07:59:46Z INFO ActionManifestManagerLegacy] Input 'fetch-depth': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 67,
+  "col": 14,
+  "lit": "1"
+}
+[2026-06-13 07:59:46Z INFO ActionManifestManagerLegacy] Input 'fetch-tags': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 70,
+  "col": 14,
+  "lit": "false"
+}
+[2026-06-13 07:59:46Z INFO ActionManifestManagerLegacy] Input 'lfs': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 73,
+  "col": 14,
+  "lit": "false"
+}
+[2026-06-13 07:59:46Z INFO ActionManifestManagerLegacy] Input 'submodules': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 82,
+  "col": 14,
+  "lit": "false"
+}
+[2026-06-13 07:59:46Z INFO ActionManifestManagerLegacy] Input 'set-safe-directory': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 85,
+  "col": 14,
+  "lit": "true"
+}
+[2026-06-13 07:59:46Z INFO ActionManifestManagerLegacy] Input 'github-server-url': default value evaluate result: ""
+[2026-06-13 07:59:46Z INFO ExtensionManager] Getting extensions for interface: 'GitHub.Runner.Worker.IActionCommandExtension'
+[2026-06-13 07:59:46Z INFO ActionCommandManager] Register action command extension for command internal-set-repo-path
+[2026-06-13 07:59:46Z INFO ActionCommandManager] Register action command extension for command set-env
+[2026-06-13 07:59:46Z INFO ActionCommandManager] Register action command extension for command set-output
+[2026-06-13 07:59:46Z INFO ActionCommandManager] Register action command extension for command save-state
+[2026-06-13 07:59:46Z INFO ActionCommandManager] Register action command extension for command add-path
+[2026-06-13 07:59:46Z INFO ActionCommandManager] Register action command extension for command add-mask
+[2026-06-13 07:59:46Z INFO ActionCommandManager] Register action command extension for command add-matcher
+[2026-06-13 07:59:46Z INFO ActionCommandManager] Register action command extension for command remove-matcher
+[2026-06-13 07:59:46Z INFO ActionCommandManager] Register action command extension for command warning
+[2026-06-13 07:59:46Z INFO ActionCommandManager] Register action command extension for command error
+[2026-06-13 07:59:46Z INFO ActionCommandManager] Register action command extension for command notice
+[2026-06-13 07:59:46Z INFO ActionCommandManager] Register action command extension for command debug
+[2026-06-13 07:59:46Z INFO ActionCommandManager] Register action command extension for command group
+[2026-06-13 07:59:46Z INFO ActionCommandManager] Register action command extension for command endgroup
+[2026-06-13 07:59:46Z INFO ActionCommandManager] Register action command extension for command echo
+[2026-06-13 07:59:46Z INFO HostContext] Well known directory 'Bin': 'D:\Docker\actions-runner\bin'
+[2026-06-13 07:59:46Z INFO HostContext] Well known directory 'Root': 'D:\Docker\actions-runner'
+[2026-06-13 07:59:46Z INFO HostContext] Well known directory 'Externals': 'D:\Docker\actions-runner\externals'
+[2026-06-13 07:59:46Z INFO ProcessInvokerWrapper] Starting process:
+[2026-06-13 07:59:46Z INFO ProcessInvokerWrapper]   File name: 'D:\Docker\actions-runner\externals\node20\bin\node.exe'
+[2026-06-13 07:59:46Z INFO ProcessInvokerWrapper]   Arguments: '"D:\Docker\actions-runner\_work\_actions\actions\checkout\v3\dist/index.js"'
+[2026-06-13 07:59:46Z INFO ProcessInvokerWrapper]   Working directory: 'D:\Docker\actions-runner\_work\CI-CD-Project-using-Git-Action\CI-CD-Project-using-Git-Action'
+[2026-06-13 07:59:46Z INFO ProcessInvokerWrapper]   Require exit code zero: 'False'
+[2026-06-13 07:59:46Z INFO ProcessInvokerWrapper]   Encoding web name: utf-8 ; code page: '65001'
+[2026-06-13 07:59:46Z INFO ProcessInvokerWrapper]   Force kill process on cancellation: 'False'
+[2026-06-13 07:59:46Z INFO ProcessInvokerWrapper]   Redirected STDIN: 'False'
+[2026-06-13 07:59:46Z INFO ProcessInvokerWrapper]   Persist current code page: 'True'
+[2026-06-13 07:59:46Z INFO ProcessInvokerWrapper]   Keep redirected STDIN open: 'False'
+[2026-06-13 07:59:46Z INFO ProcessInvokerWrapper]   High priority process: 'False'
+[2026-06-13 07:59:46Z INFO ProcessInvokerWrapper] Process started with process id 6224, waiting for process exit.
+[2026-06-13 07:59:46Z INFO JobServerQueue] Try to append 1 batches web console lines for record '16e55059-a100-44b6-8146-22ac49740f87', success rate: 1/1.
+[2026-06-13 07:59:46Z INFO JobServerQueue] Try to append 1 batches web console lines for record '9b48d8a1-3ddf-4aa4-8c88-2dd552a2f226', success rate: 1/1.
+[2026-06-13 07:59:46Z INFO JobServerQueue] Got a step log file to send to results service.
+[2026-06-13 07:59:46Z INFO JobServerQueue] Starting upload of step log file to results service ResultsLog, D:\Docker\actions-runner\_diag\blocks\a5fd09c1-9c5e-4f0d-b255-cfd8732d5a5b_16e55059-a100-44b6-8146-22ac49740f87.1
+[2026-06-13 07:59:46Z INFO HostContext] Well known directory 'Bin': 'D:\Docker\actions-runner\bin'
+[2026-06-13 07:59:46Z INFO HostContext] Well known directory 'Root': 'D:\Docker\actions-runner'
+[2026-06-13 07:59:46Z INFO HostContext] Well known directory 'Work': 'D:\Docker\actions-runner\_work'
+[2026-06-13 07:59:46Z INFO JobServerQueue] Try to append 1 batches web console lines for record '9b48d8a1-3ddf-4aa4-8c88-2dd552a2f226', success rate: 1/1.
+[2026-06-13 07:59:46Z INFO JobServerQueue] Try to upload 1 log files or attachments, success rate: 1/1.
+[2026-06-13 07:59:46Z INFO AddMaskCommandExtension] Add new secret mask with length of 32
+[2026-06-13 07:59:47Z INFO JobServerQueue] Try to append 1 batches web console lines for record '9b48d8a1-3ddf-4aa4-8c88-2dd552a2f226', success rate: 1/1.
+[2026-06-13 07:59:47Z INFO JobServerQueue] Tried to upload 1 file(s) to results, success rate: 1/1.
+[2026-06-13 07:59:47Z INFO JobServerQueue] Try to append 1 batches web console lines for record '9b48d8a1-3ddf-4aa4-8c88-2dd552a2f226', success rate: 1/1.
+[2026-06-13 07:59:49Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2026-06-13 07:59:49Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2026-06-13 07:59:49Z INFO ProcessInvokerWrapper] Finished process 6224 with exit code 0, and elapsed time 00:00:02.9199598.
+[2026-06-13 07:59:49Z INFO CreateStepSummaryCommand] Step Summary file (D:\Docker\actions-runner\_work\_temp\_runner_file_commands\step_summary_782cfb89-66ad-4dd1-9c1d-bdb7c1d20cb0) is empty; skipping attachment upload
+[2026-06-13 07:59:49Z INFO StepsRunner] Step result: 
+[2026-06-13 07:59:49Z INFO ExecutionContext] Publish step telemetry for current step {
+  "action": "actions/checkout",
+  "ref": "v3",
+  "type": "node20",
+  "stage": "Post",
+  "stepId": "9b48d8a1-3ddf-4aa4-8c88-2dd552a2f226",
+  "result": "succeeded",
+  "errorMessages": [
+    "The process 'C:\\Program Files\\Git\\cmd\\git.exe' failed with exit code 128"
+  ],
+  "executionTimeInSeconds": 4,
+  "startTime": "2026-06-13T07:59:46.0125687Z",
+  "finishTime": "2026-06-13T07:59:49.0262678Z"
+}.
+[2026-06-13 07:59:49Z INFO StepsRunner] No need for updating job result with current step result 'Succeeded'.
+[2026-06-13 07:59:49Z INFO StepsRunner] Current state: job state = 'Failed'
+[2026-06-13 07:59:49Z INFO JobRunner] Finalize job.
+[2026-06-13 07:59:49Z INFO HostContext] Well known directory 'Bin': 'D:\Docker\actions-runner\bin'
+[2026-06-13 07:59:49Z INFO HostContext] Well known directory 'Root': 'D:\Docker\actions-runner'
+[2026-06-13 07:59:49Z INFO HostContext] Well known directory 'Diag': 'D:\Docker\actions-runner\_diag'
+[2026-06-13 07:59:49Z INFO HostContext] Well known directory 'Bin': 'D:\Docker\actions-runner\bin'
+[2026-06-13 07:59:49Z INFO HostContext] Well known directory 'Root': 'D:\Docker\actions-runner'
+[2026-06-13 07:59:49Z INFO HostContext] Well known directory 'Diag': 'D:\Docker\actions-runner\_diag'
+[2026-06-13 07:59:49Z INFO JobExtension] Initialize Env context
+[2026-06-13 07:59:49Z INFO JobExtension] Initialize steps context
+[2026-06-13 07:59:49Z INFO JobExtension] Total accessible running process: 267.
+[2026-06-13 07:59:49Z INFO JobExtension] Inspecting process environment variables. PID: 2812 (chrome)
+[2026-06-13 07:59:49Z INFO JobExtension] Wait for all connectivity checks to finish.
+[2026-06-13 07:59:49Z INFO JobExtension] Connectivity check result: GitHub.Runner.Worker.JobExtension+CheckResult
+[2026-06-13 07:59:49Z INFO JobExtension] Connectivity check result: GitHub.Runner.Worker.JobExtension+CheckResult
+[2026-06-13 07:59:49Z INFO JobExtension] Connectivity check result: GitHub.Runner.Worker.JobExtension+CheckResult
+[2026-06-13 07:59:49Z INFO ExecutionContext] Publish step telemetry for current step {
+  "action": "complete_job",
+  "type": "runner",
+  "stage": "Post",
+  "stepId": "33ca3761-978e-4265-9d55-ed1fd72135c4",
+  "result": "succeeded",
+  "errorMessages": [
+    "Node.js 20 actions are deprecated. The following actions are running on Node.js 20 and may not work as expected: actions/checkout@v3. Actions will be forced to run with Node.js 24 by default starting June 16th, 2026. Node.js 20 will be removed from the run"
+  ],
+  "executionTimeInSeconds": 1,
+  "startTime": "2026-06-13T07:59:49.0497809Z",
+  "finishTime": "2026-06-13T07:59:49.1305978Z"
+}.
+[2026-06-13 07:59:49Z INFO JobRunner] Job result after all job steps finish: Failed
+[2026-06-13 07:59:49Z INFO JobRunner] Completing the job execution context.
+[2026-06-13 07:59:49Z INFO JobRunner] Shutting down the job server queue.
+[2026-06-13 07:59:49Z INFO JobServerQueue] Fire signal to shutdown all queues.
+[2026-06-13 07:59:49Z INFO JobServerQueue] All queue process task stopped.
+[2026-06-13 07:59:49Z INFO JobServerQueue] Try to append 1 batches web console lines for record '9b48d8a1-3ddf-4aa4-8c88-2dd552a2f226', success rate: 1/1.
+[2026-06-13 07:59:49Z INFO JobServerQueue] Try to append 1 batches web console lines for record '33ca3761-978e-4265-9d55-ed1fd72135c4', success rate: 1/1.
+[2026-06-13 07:59:49Z INFO JobServerQueue] Web console line queue drained.
+[2026-06-13 07:59:49Z INFO JobServerQueue] Uploading 3 files in one shot.
+[2026-06-13 07:59:49Z INFO JobServerQueue] Try to upload 3 log files or attachments, success rate: 3/3.
+[2026-06-13 07:59:49Z INFO JobServerQueue] File upload queue drained.
+[2026-06-13 07:59:49Z INFO JobServerQueue] Starting results-based upload queue...
+[2026-06-13 07:59:49Z INFO JobServerQueue] Uploading 3 file(s) in one shot through results service.
+[2026-06-13 07:59:49Z INFO JobServerQueue] Got a step log file to send to results service.
+[2026-06-13 07:59:49Z INFO JobServerQueue] Starting upload of step log file to results service ResultsLog, D:\Docker\actions-runner\_diag\blocks\a5fd09c1-9c5e-4f0d-b255-cfd8732d5a5b_9b48d8a1-3ddf-4aa4-8c88-2dd552a2f226.1
+[2026-06-13 07:59:51Z INFO JobServerQueue] Got a step log file to send to results service.
+[2026-06-13 07:59:51Z INFO JobServerQueue] Starting upload of step log file to results service ResultsLog, D:\Docker\actions-runner\_diag\blocks\a5fd09c1-9c5e-4f0d-b255-cfd8732d5a5b_33ca3761-978e-4265-9d55-ed1fd72135c4.1
+[2026-06-13 07:59:52Z INFO JobServerQueue] Got a job log file to send to results service.
+[2026-06-13 07:59:52Z INFO JobServerQueue] Starting upload of job log file to results service ResultsLog, D:\Docker\actions-runner\_diag\blocks\a5fd09c1-9c5e-4f0d-b255-cfd8732d5a5b_860944d9-723b-5a38-a79e-5f37b99ae5cb.1
+[2026-06-13 07:59:57Z INFO JobServerQueue] Tried to upload 3 file(s) to results, success rate: 3/3.
+[2026-06-13 07:59:57Z INFO JobServerQueue] Results upload queue drained.
+[2026-06-13 07:59:58Z INFO JobServerQueue] Timeline update queue drained.
+[2026-06-13 07:59:58Z INFO JobServerQueue] Disposing job server ...
+[2026-06-13 07:59:58Z INFO JobServerQueue] Disposing results server ...
+[2026-06-13 07:59:58Z INFO JobServerQueue] All queue process tasks have been stopped, and all queues are drained.
+[2026-06-13 07:59:58Z INFO TempDirectoryManager] Cleaning runner temp folder: D:\Docker\actions-runner\_work\_temp
+[2026-06-13 07:59:58Z INFO HostContext] Well known directory 'Bin': 'D:\Docker\actions-runner\bin'
+[2026-06-13 07:59:58Z INFO HostContext] Well known directory 'Root': 'D:\Docker\actions-runner'
+[2026-06-13 07:59:58Z INFO HostContext] Well known directory 'Diag': 'D:\Docker\actions-runner\_diag'
+[2026-06-13 07:59:58Z INFO HostContext] Well known config file 'Telemetry': 'D:\Docker\actions-runner\_diag\.telemetry'
+[2026-06-13 07:59:58Z INFO JobRunner] Raising job completed against run service
+[2026-06-13 07:59:59Z INFO Worker] Job completed.
