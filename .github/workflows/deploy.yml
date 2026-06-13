@@ -17,10 +17,12 @@ jobs:
         run: docker build -t devops-app .
 
       - name: Stop old container
-        run: docker stop devops-app || true
+        run: docker stop devops-app
+        continue-on-error: true
 
       - name: Remove old container
-        run: docker rm devops-app || true
+        run: docker rm devops-app
+        continue-on-error: true
 
       - name: Run container
         run: docker run -d -p 3000:3000 --name devops-app devops-app
